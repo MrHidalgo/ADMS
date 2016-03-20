@@ -1,6 +1,7 @@
 # FOLDER
 .git/
 .idea/
+node_modules/
 
 # FILES
 ADMSLanding.iml
