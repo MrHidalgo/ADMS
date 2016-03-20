@@ -41,7 +41,7 @@ var mainConfig                 = {
     scss                        : {
         // sourcemaps
         sourceMaps : {
-            sourceMap       : true,
+            sourceMap       : false,
             errLogToConsole : true,
             outputStyle     : 'compressed'
         },
@@ -53,7 +53,7 @@ var mainConfig                 = {
                 cascade      : true
             },
             unstyle : {
-                html         : './dist/index.html'
+                html         : './dist/**.html'
             },
             minify : {
                 compatibility: 'ie9'

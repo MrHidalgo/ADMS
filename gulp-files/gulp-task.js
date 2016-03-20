@@ -90,9 +90,9 @@ function styleMainTask(opt, taskName) {
             .pipe(plumber(
                 configuration.mainConfig.errorPlumber
             ))
-            .pipe(sourcemaps.init())
+            //.pipe(sourcemaps.init())
             .pipe(template.optionsScssTemplate())
-            .pipe(sourcemaps.write())
+            //.pipe(sourcemaps.write())
             .pipe(_if(ifFont, template.styleFontOptions()))
             .pipe(_if(ifStyle, template.styleFileOptions()))
             .on(commands.error, reportError)
