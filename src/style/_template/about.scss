@@ -1,0 +1,38 @@
+///
+/// IMPORT BLOCK
+///
+@import "../_mixin/mixin";
+@import "../_function/function";
+
+
+///
+/// VARIABLE BLOCK
+///
+$width-all        : return-value(dimension, all);
+$width-point      : return-value(dimension, point);
+
+$color-white      : return-value(color, white);
+$color-lightblue  : return-value(color, lightBlue);
+$color-blueBorder : return-value(color, blueBorder);
+
+section.about{
+  width: $width-all;
+  min-height: render-pixel(554);
+  background-color: $color-lightblue;
+
+  @include mixinBorder(bottom, 5px, $color-blueBorder);
+
+  .about-container{
+    @include  mixinMaxwidthPosition(12, 80, 15);
+
+
+    h1{
+      margin-top: 0;
+      color: $color-white;
+      text-transform: uppercase;
+      font-weight: normal;
+      font-size: render-pixel(30);
+      text-align: center;
+    }
+  }
+}
