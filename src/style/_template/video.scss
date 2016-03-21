@@ -1,0 +1,18 @@
+///
+/// IMPORT BLOCK
+///
+@import "../_mixin/mixin";
+@import "../_function/function";
+
+
+///
+/// VARIABLE BLOCK
+///
+$width-all    : return-value(dimension, all);
+
+///
+/// VIDEO BLOCK
+///
+section.header-video{
+  @include mixinDimensions($width-all);
+}

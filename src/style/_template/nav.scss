@@ -1,0 +1,230 @@
+///
+/// IMPORT BLOCK
+///
+@import "../_mixin/mixin";
+@import "../_function/function";
+
+
+///
+/// VARIABLE BLOCK
+///
+$width-all    : return-value(dimension, all);
+$width-half   : return-value(dimension, half);
+$width-point  : return-value(dimension, point);
+
+$font         : return-value(fontFamily, ptsans);
+
+$color-white  : return-value(color, white);
+$color-black  : return-value(color, black);
+$color-lightblue  : return-value(color, lightBlue);
+$color-lightgray  : return-value(color, lightGray);
+
+$media-resolution : return-value(mediaBreackpoints, large);
+
+
+///
+/// EXTEND BLOCK
+///
+%last-btn-link{
+  color: $color-lightblue;
+  font-weight: bold;
+  background-color: $color-lightgray;
+  border-radius: .5em;
+  padding: render-pixel(10px) render-pixel(30px);
+}
+
+%btn-link{
+  font-family: $font;
+  color: $color-black;
+  font-size: render-pixel($width-point - 83);
+  text-decoration: none;
+  padding: render-pixel(10px) render-pixel(15px);
+}
+
+
+///
+/// NAVIGATION BLOCK
+///
+section.header-navigation{
+  position: absolute;
+  top: render-pixel($width-point - 73);
+  left: 0;
+  background-color: $color-white;
+
+  @include mixinDimensions($width-all, render-pixel($width-point - 20));
+
+
+  nav.navbar{
+    position: relative;
+    max-width: render-pixel($width-point * 12);
+    padding: 0 render-pixel(15px);
+    height: $width-all;
+    margin: 0 auto;
+
+
+    .navbar-logo{
+      float: left;
+      width: $width-all - 80;
+      height: $width-all;
+      line-height: 6.7;
+      text-align: center;
+
+
+      >img{
+        max-width: $width-all;
+      }
+    }// /-navbar-logo
+
+
+    .navbar-menu{
+      float: left;
+      width: $width-all - 20;
+      height: $width-all;
+      text-align: center;
+
+
+      .navbar-menu-list{
+        padding-left: 0;
+        line-height: 2.9;
+
+
+        >li{
+          display: inline-block;
+          list-style: none;
+
+
+          >a{
+            @extend %btn-link;
+          }
+        }
+
+        >li:last-child{
+          a:last-child{
+            @extend %last-btn-link;
+          }
+        }
+      }// /-navbar-menu-list
+    }// /-navbar-menu
+
+
+    .navbar-hidemenu{
+
+      .navbar-hidemenu-btn{
+        display: none;
+        position: absolute;
+        right: render-pixel(15);
+        top: $width-all - 67;
+        width: render-pixel($width-point - 70);
+        height: render-pixel($width-point - 78);
+        cursor: pointer;
+        z-index: 100;
+
+
+        span.line{
+          @include mixinbtnMenu(null, $width-half, $color-black, 1s, $width-all, 5);
+
+
+          &:before{
+            @include mixinbtnMenu('', -8px, $color-black, 1s, $width-all, 5);
+          }
+
+
+          &:after{
+            @include mixinbtnMenu('', 8px, $color-black, 1s, $width-all, 5);
+          }
+        }// /-line
+      }// /-.navbar-hidemenu-btn
+
+
+      .navbar-hidemenu-btn.btn-animation > .line{
+        background-color : transparent;
+        transform: rotate3D(180, 0, 45, 360deg);
+        transition: .8s;
+
+
+        &:before,
+        &:after{
+          top: 0;
+        }
+
+
+        &:before{
+          transform: rotate(135deg);
+          background-color: $color-white;
+        }
+
+
+        &:after{
+          transform: rotate(-135deg);
+          background-color: $color-white;
+        }
+      }// /-btn-animation
+
+
+      .navbar-hidemenu-block{
+        position: fixed;
+        display: block;
+        top: 0;
+        right: 0;
+        width: render-pixel($width-point + 180);
+        height: 100%;
+        margin-right: - render-pixel($width-point + 180);
+        background-color: rgba($color-black, .8);
+        z-index: 99;
+        overflow: auto;
+        transition: 1s;
+
+        @include mixinBoxShadow(none, -.6px, 0, .5px, rgba($color-white, .2));
+
+        ul{
+          li{
+            list-style: none;
+
+            >a{
+              display: block;
+              @extend %btn-link;
+              color: $color-white;
+            }
+          }
+
+          >li:last-child{
+            width: render-pixel($width-point + 10);
+
+            a:last-child{
+              @extend %last-btn-link;
+            }
+          }
+        }
+      }// /-navbar-hidemenu-block
+
+
+      .navbar-hidemenu-block.block-animation{
+        margin-right: 0;
+        transition: 1s;
+      }// /-block-animation
+
+    }// /-.navbar-hidemenu
+
+  }// /-nav.navbar
+}// /-section.header-navigation
+
+
+///
+/// MEDIA BLOCK
+///
+@media screen and (max-width: 1170px) {
+  section.header-navigation nav.navbar .navbar-logo{
+    width: inherit;
+  }
+
+  .navbar-menu,
+  .navbar-hidemenu-block{
+    display: none;
+  }
+
+  section.header-navigation nav.navbar .navbar-hidemenu .navbar-hidemenu-btn{
+    display: block;
+  }
+}
+
+

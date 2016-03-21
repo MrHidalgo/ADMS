@@ -1,3 +1,5 @@
+@import "../_function/function";
+
 ////
 /// @group  Mixin
 ////
@@ -276,6 +278,12 @@
   vertical-align: $vertical-align;
 }
 
+
+$media_phone    : return-value(mediaBreackpoints, phone);
+$media_tablet   : return-value(mediaBreackpoints, tablet);
+$media_desktop  : return-value(mediaBreackpoints, desktop);
+$media_large    : return-value(mediaBreackpoints, large);
+
 ///
 /// Mixin media queries.
 ///
@@ -294,29 +302,49 @@
 ///   }
 ///
 @mixin mixinRespond($media){
-  @if ($media == $text-mobile) {
+  @if ($media == 'mobile') {
     @media only screen and (max-width: $media_phone) {
       @content
     }
   }
-  @else if $media == $text-tablet{
+  @else if $media == 'tablet'{
     @media only screen and (max-width: $media_tablet - 1){
       @content
     }
   }
-  @else if ($media == $text-small) {
+  @else if ($media == 'small-desktop') {
     @media only screen and (min-width: $media_tablet) {
       @content
     }
   }
-  @else if ($media == $text-medium) {
+  @else if ($media == 'medium-desktop') {
     @media only screen and (min-width: $media_desktop) {
       @content
     }
   }
-  @else if ($media == $text-large) {
+  @else if ($media == 'large-desktop') {
     @media only screen and (min-width: $media_large) {
       @content
     }
   }
+}
+
+
+///
+///
+///
+@mixin mixinbtnMenu($content, $topVal, $colorLine, $animationDelay, $width_all, $dimenHeight) {
+  content: $content;
+  position: absolute;
+
+  @if(unit($topVal) == '%') {
+    top: $topVal;
+  } @else {
+    top: render-pixel($topVal);
+  }
+
+  background-color: $colorLine;
+  transition: $animationDelay;
+
+  @include mixinDimensions($width_all, render-pixel($dimenHeight));
 }

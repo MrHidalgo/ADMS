@@ -4,10 +4,12 @@
 @import "_mixin/mixin";
 @import "_function/function";
 
+
 ///
 /// VARIABLE BLOCK
 ///
-$width_all  : return-value(dimension, all);
+$width-all    : return-value(dimension, all);
+$color-black  : return-value(color, black);
 
 
 ///
@@ -15,12 +17,28 @@ $width_all  : return-value(dimension, all);
 ///
 body,
 html{
-  @include mixinDimensions($width_all);
+  @include mixinDimensions($width-all);
 
   margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
+
+///
+/// HEADER BLOCK
+///
+header.header{
+  position: relative;
+  background-color: $color-black;
+
+  @include mixinDimensions($width-all);
+}
+
+
+///
+/// ANIMATION CLASS
+///
 .animated {
   animation-duration: .5s;
   animation-fill-mode: both;

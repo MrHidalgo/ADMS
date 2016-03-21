@@ -1,0 +1,25 @@
+- var menu = ['Why', 'Philosophy', 'Products', 'EBS', 'AIS/AIM', 'Outsourcing', 'Contact', 'Login'];
+
+nav.navbar
+    .navbar-logo
+        img(src='./image/logotype.png')
+
+    // main menu for large resolution > 1200px
+    .navbar-menu
+        ul.navbar-menu-list
+            each val in menu
+                li
+                    a(href='#')= val
+
+    // second menu after show btn menu < 1200px
+    .navbar-hidemenu
+        // btn
+        .navbar-hidemenu-btn
+            span.line
+
+        // content block for item
+        .navbar-hidemenu-block
+            ul.menu-list
+                each val in menu
+                    li
+                        a(href='#')= val
