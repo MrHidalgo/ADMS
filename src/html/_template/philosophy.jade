@@ -1,0 +1,9 @@
+- var counrtyName = ['tunisia', 'morocco', 'poland', 'ukraine', 'cape verde', 'kuwait', 'oman'];
+- var tooltipText = ['Management and control of Tunisia´s airspace: 2 Control Centers, 5 APP Centers, 5 Control Towers. 3 PSR+MSSR Radars', 'Morocco Air Space: 2 Control Centers, 5 TMA’s units, 5 Simulators, 6 Radars MSSR and PSR', 'Poland´s new Unified Air Traffic Management System, called Pegasus 21', 'Modernization of air traffic in the Ukraine', 'Air traffic management in Cape Verde', 'Implement an innovative traffic monitoring system in Kuwait', 'Oman air traffic project'];
+
+section.philosophy
+    .philosophy-container
+        - for (var val = 0; val < 7; val++)
+            div(class='philosophy-counrty-#{counrtyName[val]}')
+                p= counrtyName[val]
+                span(class='#{counrtyName[val]}', data-tooltip=tooltipText[val])

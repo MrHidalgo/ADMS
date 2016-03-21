@@ -1,0 +1,206 @@
+///
+/// IMPORT BLOCK
+///
+@import "../_mixin/mixin";
+@import "../_function/function";
+
+
+///
+/// VARIABLE BLOCK
+///
+$width-all        : return-value(dimension, all);
+$width-point      : return-value(dimension, point);
+
+$color-white   : return-value(color, white);
+$color-black   : return-value(color, black);
+$color-darkblue   : return-value(color, darkblue);
+$color-grayBorder : return-value(color, grayBorder);
+
+$philosophy : '../image/philosophy-bg.png';
+$tunisia    : '../image/tunisia.png';
+$morocco    : '../image/morocco.png';
+$poland     : '../image/poland.png';
+$ukraine    : '../image/ukraine.png';
+$capeverde  : '../image/capeverde.png';
+$kuwait     : '../image/kuwait.png';
+$oman       : '../image/oman.png';
+
+
+///
+/// PHILOSOPHY SECTION
+///
+section.philosophy{
+  position: relative;
+  width: $width-all;
+  min-height: render-pixel(600);
+  //background-color: $color-darkblue;
+  background: url("#{$philosophy}") no-repeat center;
+  background-size: cover;
+  //background-attachment: fixed;
+  @include mixinBorder(bottom, 5px, $color-grayBorder);
+
+
+  &:before{
+    //content: '';
+    //position: absolute;
+    //width: $width-all;
+    //min-height: render-pixel(600);
+
+  }
+
+
+  .philosophy-container{
+    position: relative;
+    z-index: 10;
+    min-height: render-pixel(600);
+    @include  mixinMaxwidthPosition(12, 0, 0);
+    @include mixinCenteredBLockFlex(row, center, center);
+
+
+    div[class^='philosophy-counrty-']{
+      width: $width-all/7;
+
+
+      >p{
+        color: $color-white;
+        font-size: render-pixel(24);
+        text-align: center;
+        text-transform: capitalize;
+        margin-bottom: render-pixel(20);
+      }
+
+      >span{
+        display: block;
+        background-color: transparent;
+        border-radius: 100%;
+        margin: 0 auto;
+        cursor: pointer;
+        @include mixinDimensions($width-point - 24);
+        @include mixinBorder(all, 3px, $color-white);
+
+
+      }
+
+      @each $className, $imageName in
+                      (tunisia,   $tunisia),
+                      (morocco,   $morocco),
+                      (poland,    $poland),
+                      (ukraine,   $ukraine),
+                      (cape,      $capeverde),
+                      (kuwait,    $kuwait),
+                      (oman,      $oman) {
+        .#{$className} {
+          position: relative;
+          background: url('#{$imageName}') no-repeat center;
+          background-size: contain;
+
+          @if($className == tunisia or
+              $className == morocco or
+              $className == poland or
+              $className == ukraine or
+              $className == cape or
+              $className == kuwait) {
+            &:after{
+              content: '';
+              position: absolute;
+              top: $width-all - 53;
+              right: render-pixel(-100);
+              width: render-pixel(100);
+              height: render-pixel(4);
+              background-color: $color-white;
+            }
+          }// /-if
+
+          &:before{
+            content: attr(data-tooltip);
+            background: rgba($color-white, .8);
+            position: absolute;
+            z-index: 100;
+            opacity: 0;
+            top: render-pixel(80);
+            left: render-pixel(-90);
+            width: render-pixel(255);
+            border-radius: 0.4em;
+            text-align: center;
+            padding: 10px 15px;
+            color: black;
+            visibility: hidden;
+            transition: all 0.4s ease-in-out;
+
+            @include mixinBoxShadow(none, 1px, 1px, 10px, rgba($color-black, .5));
+          }
+
+          &:hover:before{
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }// /-each
+
+    }// /-div[class^='philosophy-counrty-']
+
+  }// /-.philosophy-container
+}// /-section.philosophy
+
+
+///
+/// ABOUT MEDIA QUERIES SECTION
+///
+@media screen and (min-width: 768px) and (max-width: 1230px){
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-] .tunisia:before,
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-] .oman:before{
+    content: attr(data-tooltip);
+  }
+
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-] .tunisia:before{
+    left: render-pixel(-10);
+  }
+
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-] .oman:before{
+    left: render-pixel(-170);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  section.philosophy .philosophy-container div[class^="philosophy-counrty-"] > p{
+    font-size: render-pixel(20);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  section.philosophy .philosophy-container{
+    display: block;
+    padding: render-pixel(25) 0;
+  }
+
+  section.philosophy{
+    background-attachment: scroll;
+  }
+
+  section.philosophy .philosophy-container div[class^="philosophy-counrty-"] > p{
+    font-size: render-pixel(19);
+  }
+
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-]{
+    width: render-pixel($width-point + 210);
+    margin: 0 auto;
+    padding: render-pixel(20) 0;
+    @include mixinCenteredBLockFlex(row, center, center);
+  }
+
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-]>p{
+    margin-bottom: 0;
+    width: render-pixel($width-point + 10);
+  }
+
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-] span:after{
+    content: '';
+    display: none;
+  }
+
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-] span:before{
+    content: '';
+    background: rgba($color-white, .95);
+    left: render-pixel(-145) !important;
+  }
+}
