@@ -8,9 +8,11 @@
 ///
 /// VARIABLE BLOCK
 ///
-$width-all    : return-value(dimension, all);
-$color-black  : return-value(color, black);
+$width-all          : return-value(dimension, all);
+$color-black        : return-value(color, black);
+$color-grayBorder   : return-value(color, grayBorder);
 
+$font               : return-value(fontFamily, ptsans);
 
 ///
 /// MAIN BLOCK
@@ -21,7 +23,9 @@ html{
 
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  font-family: $font;
+  font-size: $width-all;
+  overflow-x: hidden;
 }
 
 
@@ -32,7 +36,8 @@ header.header{
   position: relative;
   background-color: $color-black;
 
-  @include mixinDimensions($width-all);
+  @include mixinDimensions($width-all, $width-all - 0.5);
+  @include mixinBorder(bottom, 5px, $color-grayBorder);
 }
 
 
