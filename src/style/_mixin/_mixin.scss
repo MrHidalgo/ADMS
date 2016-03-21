@@ -358,3 +358,30 @@ $media_large    : return-value(mediaBreackpoints, large);
   padding: render-pixel($paddingPoint1) render-pixel($paddingPoint2);
   margin: 0 auto;
 }
+
+
+///
+///
+///
+@mixin mixinRepeatBlockMedia($blockName) {
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    div[class^=#{$blockName}-block-]>img{
+      width: 65%;
+    }
+
+    section.#{$blockName} .#{$blockName}-container>div[class^='#{$blockName}-block-']>h2{
+      font-size: render-pixel(22);
+    }
+
+    section.#{$blockName} .#{$blockName}-container>div[class^=#{$blockName}-block-]>p{
+      font-size: render-pixel(15);
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    section.#{$blockName} .#{$blockName}-container>div[class^=#{$blockName}-block-]{
+      display: block;
+      width: $width-all;
+    }
+  }
+}

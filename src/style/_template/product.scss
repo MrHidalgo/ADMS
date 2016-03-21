@@ -1,0 +1,67 @@
+///
+/// IMPORT BLOCK
+///
+@import "../_mixin/mixin";
+@import "../_function/function";
+@import "../_extend/extend";
+
+
+///
+/// VARIABLE BLOCK
+///
+$width-all        : return-value(dimension, all);
+$width-point      : return-value(dimension, point);
+
+$color-white      : return-value(color, white);
+$color-black      : return-value(color, black);
+$color-gray      : return-value(color, gray);
+$color-lightGray1 : return-value(color, lightGray1);
+
+
+///
+/// PRODUCT SECTION
+///
+section.product{
+  min-height: render-pixel(600);
+  background-color: $color-gray;
+  @include mixinBorder(bottom, 5px, $color-lightGray1);
+
+
+  .product-container{
+    @include  mixinMaxwidthPosition(12, 80, 0);
+
+    h1{
+      color: $color-black;
+      @extend %paragraphH1;
+    }// /-h1
+
+    p{
+      text-align: center;
+      font-size: render-pixel(20);
+      margin: render-pixel(20) 0 render-pixel(20) 0;
+    }// /-p
+
+
+    div[class^='product-block-']{
+      display: inline-table;
+      width: $width-all - 76;
+      text-align: center;
+      padding: render-pixel(20) render-pixel(15);
+
+
+      >h2{
+        @extend %paragraphH2;
+      }
+
+      >p{
+        @extend %paragraph;
+      }
+    }// /-div[class^='product-block-']
+  }// /- .product-container
+}// /-section.product
+
+
+///
+/// PRODUCT MEDIA QUERIES SECTION
+///
+@include mixinRepeatBlockMedia(product);

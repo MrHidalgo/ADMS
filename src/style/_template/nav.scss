@@ -3,6 +3,7 @@
 ///
 @import "../_mixin/mixin";
 @import "../_function/function";
+@import "../_extend/extend";
 
 
 ///
@@ -12,34 +13,10 @@ $width-all        : return-value(dimension, all);
 $width-half       : return-value(dimension, half);
 $width-point      : return-value(dimension, point);
 
-$font             : return-value(fontFamily, ptsans);
-
 $color-white      : return-value(color, white);
 $color-black      : return-value(color, black);
-$color-lightblue  : return-value(color, lightBlue);
-$color-lightgray  : return-value(color, lightGray);
 
 $media-resolution : return-value(mediaBreackpoints, large);
-
-
-///
-/// EXTEND BLOCK
-///
-%last-btn-link{
-  color: $color-lightblue;
-  font-weight: bold;
-  background-color: $color-lightgray;
-  border-radius: .5em;
-  padding: render-pixel(10px) render-pixel(30px);
-}
-
-%btn-link{
-  font-family: $font;
-  color: $color-black;
-  font-size: render-pixel($width-point - 83);
-  text-decoration: none;
-  padding: render-pixel(10px) render-pixel(15px);
-}
 
 
 ///

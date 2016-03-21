@@ -1,0 +1,17 @@
+- var titleProduct  = 'Products Philosophy';
+- var sloganProduct = 'ADMS is a Spanish company that was born with the idea';
+- var imageTitle    = ['Technologies', 'Supply Systems', 'Human value', 'Training'];
+- var imageSrc      = ['./image/product-1.png', './image/product-2.png', './image/product-3.png', './image/product-4.png'];
+- var productText   = ['Combining different technologies: mobile, web, servers', 'Supply Systems that are not full covered by the current offer Market', 'Give a human value to business consulting', 'Operational and technical training environments Air Traffic Control'];
+
+
+section.product
+    .product-container
+        h1= titleProduct
+        p= sloganProduct
+
+        - for (var val = 0; val < 4; val++)
+            div(class='product-block-#{val}')
+                img(src='#{imageSrc[val]}')
+                h2= imageTitle[val]
+                p= productText[val]

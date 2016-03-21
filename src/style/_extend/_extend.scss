@@ -1,0 +1,57 @@
+@import "../_function/function";
+
+$width-point      : return-value(dimension, point);
+
+$font             : return-value(fontFamily, ptsans);
+
+$color-black      : return-value(color, black);
+$color-lightblue  : return-value(color, lightBlue);
+$color-lightgray  : return-value(color, lightGray);
+
+
+///
+/// [nav...]
+///
+%last-btn-link{
+  color: $color-lightblue;
+  font-weight: bold;
+  background-color: $color-lightgray;
+  border-radius: .5em;
+  padding: render-pixel(10px) render-pixel(30px);
+}
+
+%btn-link{
+  font-family: $font;
+  color: $color-black;
+  font-size: render-pixel($width-point - 83);
+  text-decoration: none;
+  padding: render-pixel(10px) render-pixel(15px);
+}
+
+///
+/// Paragraph h1 [about, product]
+///
+%paragraphH1{
+  text-transform: uppercase;
+  font-size: render-pixel(30);
+  text-align: center;
+  font-weight: normal;
+}
+
+///
+/// Paragraph h1 [about, product]
+///
+%paragraphH2{
+  min-height: render-pixel(45);
+  font-size: render-pixel(26);
+  font-weight: normal;
+}
+
+///
+/// Paragraph p [about, product]
+///
+%paragraph{
+  line-height: 1.5;
+  font-size: render-pixel(17);
+  min-height: render-pixel(50);
+}
