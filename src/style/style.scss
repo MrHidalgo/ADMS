@@ -9,7 +9,9 @@
 /// VARIABLE BLOCK
 ///
 $width-all          : return-value(dimension, all);
+
 $color-black        : return-value(color, black);
+$color-white        : return-value(color, white);
 $color-grayBorder   : return-value(color, grayBorder);
 
 $font               : return-value(fontFamily, ptsans);
@@ -23,11 +25,30 @@ html{
 
   margin: 0;
   padding: 0;
-  font-family: $font;
-  font-size: $width-all;
   overflow-x: hidden;
 }
 
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body{
+  line-height: 1.42857143;
+  font-size: 15px;
+  font-family: $font;
+  font-weight: normal;
+  background-color: $color-white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
 ///
 /// HEADER BLOCK
@@ -36,7 +57,7 @@ header.header{
   position: relative;
   background-color: $color-black;
 
-  @include mixinDimensions($width-all, $width-all - 0.5);
+  @include mixinDimensions($width-all);
   @include mixinBorder(bottom, 5px, $color-grayBorder);
 }
 
