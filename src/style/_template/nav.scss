@@ -33,7 +33,7 @@ section.header-navigation{
   nav.navbar{
     position: relative;
     height: $width-all;
-    @include mixinMaxwidthPosition(12, 0, 15);
+    @include mixinMaxWidthPosition(12, 0, 15);
 
 
     .navbar-logo{

@@ -24,118 +24,36 @@
   </head>
   <body>
     <!-- HEADER [navigation, video]-->
-    <header class="header">
-      <!-- video section-->
-      <section class="header-video">
-        <video width="100%" height="100%" autoplay muted loop>
-          <!--source(src='./video/video.mp4')-->
-        </video>
-      </section>
-      <!-- navigation section-->
-      <section class="header-navigation">
-        <nav class="navbar">
-          <div class="navbar-logo"><img src="./image/logotype.png"></div>
-          <!-- main menu for large resolution > 1200px-->
-          <div class="navbar-menu">
-            <ul class="navbar-menu-list">
-              <li><a href="#">Why</a></li>
-              <li><a href="#">Philosophy</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="#">EBS</a></li>
-              <li><a href="#">AIS/AIM</a></li>
-              <li><a href="#">Outsourcing</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Login</a></li>
-            </ul>
-          </div>
-          <!-- second menu after show btn menu < 1200px-->
-          <div class="navbar-hidemenu">
-            <!-- btn-->
-            <div class="navbar-hidemenu-btn"><span class="line"></span></div>
-            <!-- content block for item-->
-            <div class="navbar-hidemenu-block">
-              <ul class="menu-list">
-                <li><a href="#">Why</a></li>
-                <li><a href="#">Philosophy</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">EBS</a></li>
-                <li><a href="#">AIS/AIM</a></li>
-                <li><a href="#">Outsourcing</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Login</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </section>
-    </header>
+    <!--header.header
+    // video section
+    section.header-video
+        include video
+    
+    // navigation section
+    section.header-navigation
+        include nav
+    
+    -->
     <!-- ABOUT [why ADMS...]-->
-    <section class="about">
-      <div class="about-container">
-        <h1>why aero data management systems</h1>
-        <div class="about-block-0"><img src="./image/about-3.png">
-          <h2>Huge companies</h2>
-          <p>Aero Data Management Systems (ADMS) is a company created from the human value and experience in systems Civil Aviation, Air Traffic Management and Airports.</p>
-        </div>
-        <div class="about-block-1"><img src="./image/about-36.png">
-          <h2>Years of experience</h2>
-          <p>ADMS is composed of a human staff with 36 years of experience in various companies in the aviation environment.</p>
-        </div>
-        <div class="about-block-2"><img src="./image/about-100.png">
-          <h2>Сontrol centers and airport systems</h2>
-          <p>Our staff has created installations and commissioning of over 100 control centers and airport systems worldwide.</p>
-        </div>
-      </div>
-    </section>
+    <!--block about
+    include about
+    
+    -->
     <!-- PHILOSOPHY [flags, map]-->
-    <section class="philosophy">
-      <div class="philosophy-container">
-        <div class="philosophy-counrty-tunisia">
-          <p>tunisia</p><span data-tooltip="Management and control of Tunisia´s airspace: 2 Control Centers, 5 APP Centers, 5 Control Towers. 3 PSR+MSSR Radars" class="tunisia"></span>
-        </div>
-        <div class="philosophy-counrty-morocco">
-          <p>morocco</p><span data-tooltip="Morocco Air Space: 2 Control Centers, 5 TMA’s units, 5 Simulators, 6 Radars MSSR and PSR" class="morocco"></span>
-        </div>
-        <div class="philosophy-counrty-poland">
-          <p>poland</p><span data-tooltip="Poland´s new Unified Air Traffic Management System, called Pegasus 21" class="poland"></span>
-        </div>
-        <div class="philosophy-counrty-ukraine">
-          <p>ukraine</p><span data-tooltip="Modernization of air traffic in the Ukraine" class="ukraine"></span>
-        </div>
-        <div class="philosophy-counrty-cape verde">
-          <p>cape verde</p><span data-tooltip="Air traffic management in Cape Verde" class="cape verde"></span>
-        </div>
-        <div class="philosophy-counrty-kuwait">
-          <p>kuwait</p><span data-tooltip="Implement an innovative traffic monitoring system in Kuwait" class="kuwait"></span>
-        </div>
-        <div class="philosophy-counrty-oman">
-          <p>oman</p><span data-tooltip="Oman air traffic project" class="oman"></span>
-        </div>
-      </div>
-    </section>
+    <!--block philosophy
+    include philosophy
+    
+    -->
     <!-- PRODUCT [products philosophy]-->
-    <section class="product">
-      <div class="product-container">
-        <h1>Products Philosophy</h1>
-        <p>ADMS is a Spanish company that was born with the idea</p>
-        <div class="product-block-0"><img src="./image/product-1.png">
-          <h2>Technologies</h2>
-          <p>Combining different technologies: mobile, web, servers</p>
-        </div>
-        <div class="product-block-1"><img src="./image/product-2.png">
-          <h2>Supply Systems</h2>
-          <p>Supply Systems that are not full covered by the current offer Market</p>
-        </div>
-        <div class="product-block-2"><img src="./image/product-3.png">
-          <h2>Human value</h2>
-          <p>Give a human value to business consulting</p>
-        </div>
-        <div class="product-block-3"><img src="./image/product-4.png">
-          <h2>Training</h2>
-          <p>Operational and technical training environments Air Traffic Control</p>
-        </div>
-      </div>
-    </section>
+    <!--block product
+    include product
+    
+    -->
+    <!--footer.footer
+    .footer-container
+        h1 Thank God the waiting is over!
+        img(src='./image/footer-logotype.png')
+    -->
     <!-- FOOTER SECTION [script..]-->
     <script src="script/jquery.min.js"></script>
     <script src="script/script.min.js"></script>

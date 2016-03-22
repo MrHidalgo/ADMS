@@ -28,7 +28,7 @@ section.product{
 
 
   .product-container{
-    @include  mixinMaxwidthPosition(12, 80, 0);
+    @include  mixinMaxWidthPosition(12, 80, 0);
 
     h1{
       color: $color-black;
@@ -39,6 +39,7 @@ section.product{
       text-align: center;
       font-size: render-pixel(20);
       margin: render-pixel(20) 0 render-pixel(20) 0;
+      padding: 0 render-pixel(15);
     }// /-p
 
 

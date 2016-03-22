@@ -9,12 +9,24 @@
 /// VARIABLE BLOCK
 ///
 $width-all          : return-value(dimension, all);
+$width-point        : return-value(dimension, point);
 
 $color-black        : return-value(color, black);
 $color-white        : return-value(color, white);
+$color-lightBlue    : return-value(color, lightBlue);
 $color-grayBorder   : return-value(color, grayBorder);
 
 $font               : return-value(fontFamily, ptsans);
+
+
+///
+///
+///
+@font-face {
+  font-family: AgoraSansPro;
+  src:  url('../fonts/pfagorasanspro-mediumital.ttf');
+}
+$fontAgora : AgoraSansPro;
 
 ///
 /// MAIN BLOCK
@@ -64,6 +76,39 @@ header.header{
 
   @include mixinDimensions($width-all);
   @include mixinBorder(bottom, 5px, $color-grayBorder);
+}
+
+///
+/// FOOTER BLOCK
+///
+footer.footer{
+  min-height: $width-point;
+  background-color: $color-lightBlue;
+
+  .footer-container{
+    height: $width-point;
+    @include mixinMaxWidthPosition(12, 0, 15);
+    @include mixinCenteredBLockFlex(row, center, space-between);
+  }
+  h1{
+    color: $color-white;
+    font-weight: 500;
+    font-size: render-pixel(35);
+    font-family: $fontAgora;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  footer.footer .footer-container{
+    height: $width-all;
+    flex-direction: column;
+  }
+
+  footer.footer .footer-container > *{
+    max-width: $width-all;
+    padding: render-pixel(20);
+    text-align: center;
+  }
 }
 
 
