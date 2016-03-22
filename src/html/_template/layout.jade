@@ -1,3 +1,5 @@
+- var atmSlogan = 'In the global air traffic management (ATM) system environment envisioned by the operational concept, aeronautical information service (AIS) would become one of the most valuable and important enabling services';
+
 doctype html
 html
 
@@ -28,6 +30,16 @@ html
         //block product
             include product
 
+        // ATM block
+        section.atm-block
+            .atm-block-container
+                h1= atmSlogan
+
+        // OUTSOURCING SERVICES
+        //block outsourcingServices
+            include service
+
+        // FOOTER
         //footer.footer
             .footer-container
                 h1 Thank God the waiting is over!

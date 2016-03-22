@@ -1,0 +1,61 @@
+///
+/// IMPORT BLOCK
+///
+@import "../_mixin/mixin";
+@import "../_function/function";
+@import "../_extend/extend";
+
+
+///
+/// VARIABLE BLOCK
+///
+$width-all        : return-value(dimension, all);
+$width-point      : return-value(dimension, point);
+
+$color-white      : return-value(color, white);
+$color-black      : return-value(color, black);
+$color-gray       : return-value(color, gray);
+//$color-blueBorder : return-value(color, blueBorder);
+
+
+///
+/// ABOUT SECTION
+///
+section.out-service{
+  width: $width-all;
+  min-height: render-pixel(554);
+  background-color: $color-gray;
+
+  .out-service-container{
+    @include  mixinMaxWidthPosition(12, 80, 0);
+
+
+    h1{
+      color: $color-black;
+      @extend %paragraphH1;
+    }
+
+    >div[class^='out-service-block-']{
+      display: inline-table;
+      text-align: center;
+      width: $width-all - 68;
+      color: $color-black;
+      padding: render-pixel(90) render-pixel(15) 0;
+
+
+      >h2{
+        @extend %paragraphH2;
+      }
+
+      >p{
+        @extend %paragraph;
+      }
+    }// /-div[class^='out-service-block-']
+  }// /-out-service-container
+}// /-section.out-service
+
+
+///
+/// out-service MEDIA QUERIES SECTION
+///
+@include mixinRepeatBlockMedia(out-service);

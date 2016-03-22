@@ -1,0 +1,14 @@
+- var title     = 'Outsourcing services';
+- var imageSrc  = ['./image/services-1.png', './image/services-2.png', './image/services-3.png'];
+- var slogan    = ['Management proceses', 'Training', 'EBS OFS  (On-Factory System)'];
+- var text      = ["Working to perform Master Plans for Civil aviation's", 'Operational and technical trainings', 'EBS_OFS provide directly from ADMS servers. ADMS can provide externalization for the invoice, statistics, reports systems'];
+
+section.out-service
+    .out-service-container
+        h1= title
+
+        -for (var val = 0; val < 3; val++)
+            div(class='out-service-block-#{val}')
+                img(src=imageSrc[val])
+                h2= slogan[val]
+                p= text[val]
