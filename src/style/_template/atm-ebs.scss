@@ -19,8 +19,9 @@ $color-ebsBorder  : return-value(color, ebsBorder);
 $atmBg            : '../image/atm-image-bg.png';
 $etsBg            : '../image/ebs-image-bg.png';
 
+
 ///
-/// ATB/EBS BLOCK
+/// ATB/EBS SOLO BLOCK
 ///
 section.atm-block{
   @include mixinBorder(bottom, 5px, $color-lgrayBorder);
@@ -35,7 +36,6 @@ section.atm-block{
     background: url($atmBg) no-repeat center;
   }
 }
-
 section.ebs-block{
   @include mixinBorder(bottom, 5px, $color-ebsBorder);
 
@@ -50,7 +50,9 @@ section.ebs-block{
   }
 }
 
-
+///
+/// ATB/EBS MAIN BLOCK
+///
 section.atm-block,
 section.ebs-block{
   position: relative;
@@ -109,7 +111,7 @@ section.ebs-block{
 
 
 ///
-///
+/// ATM/EBS MEDIA QUERIES BLOCK
 ///
 @media screen and (max-width: 767px){
   section.ebs-block .ebs-block-container h1{

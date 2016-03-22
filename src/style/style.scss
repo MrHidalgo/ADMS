@@ -3,6 +3,13 @@
 ///
 @import "_mixin/mixin";
 @import "_function/function";
+///
+/// FONTS
+///
+@font-face {
+  font-family: AgoraSansPro;
+  src:  url('../fonts/pfagorasanspro-mediumital.ttf');
+}
 
 
 ///
@@ -17,16 +24,8 @@ $color-lightBlue    : return-value(color, lightBlue);
 $color-grayBorder   : return-value(color, grayBorder);
 
 $font               : return-value(fontFamily, ptsans);
+$fontAgora          : AgoraSansPro;
 
-
-///
-///
-///
-@font-face {
-  font-family: AgoraSansPro;
-  src:  url('../fonts/pfagorasanspro-mediumital.ttf');
-}
-$fontAgora : AgoraSansPro;
 
 ///
 /// MAIN BLOCK
@@ -51,6 +50,8 @@ body{
   font-family: $font;
   font-weight: normal;
   background-color: $color-white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -67,6 +68,7 @@ h1{
   margin: 0;
 }
 
+
 ///
 /// HEADER BLOCK
 ///
@@ -77,6 +79,7 @@ header.header{
   @include mixinDimensions($width-all);
   @include mixinBorder(bottom, 5px, $color-grayBorder);
 }
+
 
 ///
 /// FOOTER BLOCK
@@ -98,6 +101,10 @@ footer.footer{
   }
 }
 
+
+///
+/// FOOTER MEDIA QUERIES BLOCK
+///
 @media screen and (max-width: 767px) {
   footer.footer .footer-container{
     height: $width-all;
