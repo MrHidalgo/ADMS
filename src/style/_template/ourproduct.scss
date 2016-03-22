@@ -1,0 +1,87 @@
+///
+/// IMPORT BLOCK
+///
+@import "../_mixin/mixin";
+@import "../_function/function";
+@import "../_extend/extend";
+
+
+///
+/// VARIABLE BLOCK
+///
+$width-all        : return-value(dimension, all);
+$width-point      : return-value(dimension, point);
+
+$color-white      : return-value(color, white);
+$color-black      : return-value(color, black);
+$color-lightGray1 : return-value(color, lightGray1);
+
+$first            : '../image/our-prod-1.png';
+$second           : '../image/our-prod-2.png';
+$third            : '../image/our-prod-3.png';
+$fourth           : '../image/our-prod-4.png';
+
+///
+/// OUR PRODUCT SECTION
+///
+section.ourProduct{
+  width: $width-all;
+  min-height: render-pixel(620);
+  background-color: $color-white;
+  @include mixinBorder(bottom, 5px, $color-lightGray1);
+
+
+  .ourProduct-container{
+    @include  mixinMaxWidthPosition(12, 80, 0);
+
+
+    h1{
+      color: $color-black;
+      @extend %paragraphH1;
+    }
+    >p{
+      text-align: center;
+      font-size: render-pixel(20);
+      margin: render-pixel(20) 0;
+    }
+
+
+    >div{
+      position: relative;
+      display: inline-table;
+      width: render-pixel($width-point + 177);
+      height: render-pixel($width-point + 170);
+
+
+      span.circleBlock{
+        position: absolute;
+        @include mixinDimensions(render-pixel(240), render-pixel($width-point));
+        background-color: $color-white;
+      }// /-span.circleBlock
+    }// /-div[class^='intenal-animation-']
+
+
+    @each $className, $imageName in
+                    (ebs, $first),
+                    (ais, $second),
+                    (outsourcing, $third),
+                    (operational, $fourth){
+
+      .#{$className}{
+        background: url('#{$imageName}') no-repeat center;
+        background-size: cover;
+
+        @if($className == ebs or $className == outsourcing) {
+          >span.circleBlock{
+            top: 0;
+          }
+        }
+        @if($className == ais or $className == operational) {
+          >span.circleBlock{
+            bottom: 0;
+          }
+        }
+      }
+    }// /-@each
+  }// /-ourProduct-container
+}// /-section.ourProduct

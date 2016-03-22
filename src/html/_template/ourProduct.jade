@@ -1,0 +1,19 @@
+- var title     = 'Our Products';
+- var slogan    = 'Some words about the products';
+- var arrClass  = ['ebs', 'ais', 'outsourcing', 'operational'];
+- var textBlock = ['Electronic Billing System (EBS)', 'AIS/AIM System', 'Outsourcing', 'Operational and technical training'];
+- var textHide  = {0 : ['Invoicing automatic system', 'Invoices Simulation System'], 1 : ['AIS/AIM Systems compliant AIXM 5.1', 'NOTAM Management'], 2 : ['FPL Briefing', 'METAR Management'], 3: ['eAIP', 'eTOD']};
+
+section.ourProduct
+    .ourProduct-container
+        h1= title
+        p= slogan
+        - for(var val = 0; val < 4; val++)
+            div(class=arrClass[val])
+                span.circleBlock
+                    p= textBlock[val]
+                    span(class='intenal-animation-hide-#{val}')
+                        ul
+                        - for (var i = 0; i < textHide[val].length; i++)
+                            - var item = textHide[val];
+                            li= item[i]
