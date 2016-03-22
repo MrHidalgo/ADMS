@@ -14,28 +14,61 @@ $width-point      : return-value(dimension, point);
 
 $color-white      : return-value(color, white);
 $color-lgrayBorder: return-value(color, lgrayBorder);
+$color-ebsBorder  : return-value(color, ebsBorder);
 
+$atmBg            : '../image/atm-image-bg.png';
+$etsBg            : '../image/ebs-image-bg.png';
 
 ///
 /// ATB/EBS BLOCK
 ///
 section.atm-block{
+  @include mixinBorder(bottom, 5px, $color-lgrayBorder);
+
+  .atm-block-container{
+    h1{
+      font-size: render-pixel(35);
+    }
+  }
+
+  &:before{
+    background: url($atmBg) no-repeat center;
+  }
+}
+
+section.ebs-block{
+  @include mixinBorder(bottom, 5px, $color-ebsBorder);
+
+  .ebs-block-container{
+    h1{
+      font-size: render-pixel(57);
+    }
+  }
+
+  &:before{
+    background: url($etsBg) no-repeat center;
+  }
+}
+
+
+section.atm-block,
+section.ebs-block{
   position: relative;
   width: $width-all;
   min-height: render-pixel(500);
   background-color: $color-white;
-  @include mixinBorder(bottom, 5px, $color-lgrayBorder);
 
   &:before{
     content: '';
     position: absolute;
     @include mixinDimensions($width-all);
-    background: url("../image/atm-image-bg.png") no-repeat center;
+
     background-size: cover;
   }
 
 
-  .atm-block-container{
+  .atm-block-container,
+  .ebs-block-container{
     position: relative;
     min-height: render-pixel(500);
     @include mixinMaxWidthPosition(12, 80, 0);
@@ -48,14 +81,13 @@ section.atm-block{
       padding: 0 render-pixel(30);
       font-family: AgoraSansPro;
       line-height: 2;
-      font-size: render-pixel(35);
       font-weight: 500;
 
       &:before,
       &:after{
         content: '';
         position: absolute;
-        top: 38%;
+        top: $width-all - 60.5;
         width: $width-point - 81;
         height: $width-point - 5;
         width: $width-all;
@@ -80,8 +112,16 @@ section.atm-block{
 ///
 ///
 @media screen and (max-width: 767px){
+  section.ebs-block .ebs-block-container h1{
+    font-size: render-pixel(35);
+  }
+
   section.atm-block .atm-block-container h1{
     font-size: render-pixel(25);
+  }
+
+  section.atm-block .atm-block-container h1,
+  section.ebs-block .ebs-block-container h1{
     padding: 0 render-pixel(15);
 
     &:before,
