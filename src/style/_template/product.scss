@@ -28,7 +28,7 @@ section.product{
 
 
   .product-container{
-    @include  mixinMaxWidthPosition(12, 80, 0);
+    @include  mixinMaxWidthPosition(12.5, 80, 0);
 
     h1{
       color: $color-black;

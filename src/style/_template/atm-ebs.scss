@@ -72,7 +72,7 @@ section.ebs-block{
   .ebs-block-container{
     position: relative;
     min-height: render-pixel(500);
-    @include mixinMaxWidthPosition(12, 80, 0);
+    @include mixinMaxWidthPosition(12.5, 80, 0);
     @include mixinCenteredBLockFlex(row, center, center);
 
 

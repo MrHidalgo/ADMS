@@ -18,8 +18,10 @@
     <link href="style/service.css" rel="stylesheet">
     <link href="style/atm-ebs.css" rel="stylesheet">
     <link href="style/ourproduct.css" rel="stylesheet">
+    <link href="style/system.css" rel="stylesheet">
     <!-- FONTS-->
     <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -27,81 +29,200 @@
   </head>
   <body>
     <!-- HEADER [navigation, video]-->
-    <!--header.header
-    // video section
-    section.header-video
-        include video
-    
-    // navigation section
-    section.header-navigation
-        include nav
-    
-    -->
+    <header class="header">
+      <!-- video section-->
+      <section class="header-video">
+        <video width="100%" height="100%" autoplay muted loop>
+          <!--source(src='./video/video.mp4')-->
+        </video>
+      </section>
+      <!-- navigation section-->
+      <section class="header-navigation">
+        <nav class="navbar">
+          <div class="navbar-logo"><img src="./image/logotype.png"></div>
+          <!-- main menu for large resolution > 1200px-->
+          <div class="navbar-menu">
+            <ul class="navbar-menu-list">
+              <li><a href="#">Why</a></li>
+              <li><a href="#">Philosophy</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">EBS</a></li>
+              <li><a href="#">AIS/AIM</a></li>
+              <li><a href="#">Outsourcing</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </div>
+          <!-- second menu after show btn menu < 1200px-->
+          <div class="navbar-hidemenu">
+            <!-- btn-->
+            <div class="navbar-hidemenu-btn"><span class="line"></span></div>
+            <!-- content block for item-->
+            <div class="navbar-hidemenu-block">
+              <ul class="menu-list">
+                <li><a href="#">Why</a></li>
+                <li><a href="#">Philosophy</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">EBS</a></li>
+                <li><a href="#">AIS/AIM</a></li>
+                <li><a href="#">Outsourcing</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </section>
+    </header>
     <!-- ABOUT [why ADMS...]-->
-    <!--block about
-    include about
-    
-    -->
+    <section class="about">
+      <div class="about-container">
+        <h1>why aero data management systems</h1>
+        <div class="about-block-0"><img src="./image/about-3.png">
+          <h2>Huge companies</h2>
+          <p>Aero Data Management Systems (ADMS) is a company created from the human value and experience in systems Civil Aviation, Air Traffic Management and Airports.</p>
+        </div>
+        <div class="about-block-1"><img src="./image/about-36.png">
+          <h2>Years of experience</h2>
+          <p>ADMS is composed of a human staff with 36 years of experience in various companies in the aviation environment.</p>
+        </div>
+        <div class="about-block-2"><img src="./image/about-100.png">
+          <h2>Сontrol centers and airport systems</h2>
+          <p>Our staff has created installations and commissioning of over 100 control centers and airport systems worldwide.</p>
+        </div>
+      </div>
+    </section>
     <!-- PHILOSOPHY [flags, map]-->
-    <!--block philosophy
-    include philosophy
-    
-    -->
+    <section class="philosophy">
+      <div class="philosophy-container">
+        <div class="philosophy-counrty-tunisia">
+          <p>tunisia</p><span data-tooltip="Management and control of Tunisia´s airspace: 2 Control Centers, 5 APP Centers, 5 Control Towers. 3 PSR+MSSR Radars" class="tunisia"></span>
+        </div>
+        <div class="philosophy-counrty-morocco">
+          <p>morocco</p><span data-tooltip="Morocco Air Space: 2 Control Centers, 5 TMA’s units, 5 Simulators, 6 Radars MSSR and PSR" class="morocco"></span>
+        </div>
+        <div class="philosophy-counrty-poland">
+          <p>poland</p><span data-tooltip="Poland´s new Unified Air Traffic Management System, called Pegasus 21" class="poland"></span>
+        </div>
+        <div class="philosophy-counrty-ukraine">
+          <p>ukraine</p><span data-tooltip="Modernization of air traffic in the Ukraine" class="ukraine"></span>
+        </div>
+        <div class="philosophy-counrty-cape verde">
+          <p>cape verde</p><span data-tooltip="Air traffic management in Cape Verde" class="cape verde"></span>
+        </div>
+        <div class="philosophy-counrty-kuwait">
+          <p>kuwait</p><span data-tooltip="Implement an innovative traffic monitoring system in Kuwait" class="kuwait"></span>
+        </div>
+        <div class="philosophy-counrty-oman">
+          <p>oman</p><span data-tooltip="Oman air traffic project" class="oman"></span>
+        </div>
+      </div>
+    </section>
     <!-- OUR PRODUCTS-->
     <section class="ourProduct">
       <div class="ourProduct-container">
         <h1>Our Products</h1>
         <p>Some words about the products</p>
-        <div class="ebs"><span class="circleBlock">
-            <p>Electronic Billing System (EBS)</p><span class="intenal-animation-hide-0">
-              <ul></ul>
-              <li>Invoicing automatic system</li>
-              <li>Invoices Simulation System</li></span></span></div>
-        <div class="ais"><span class="circleBlock">
-            <p>AIS/AIM System</p><span class="intenal-animation-hide-1">
-              <ul></ul>
-              <li>AIS/AIM Systems compliant AIXM 5.1</li>
-              <li>NOTAM Management</li></span></span></div>
-        <div class="outsourcing"><span class="circleBlock">
-            <p>Outsourcing</p><span class="intenal-animation-hide-2">
-              <ul></ul>
-              <li>FPL Briefing</li>
-              <li>METAR Management</li></span></span></div>
-        <div class="operational"><span class="circleBlock">
-            <p>Operational and technical training</p><span class="intenal-animation-hide-3">
-              <ul></ul>
-              <li>eAIP</li>
-              <li>eTOD</li></span></span></div>
+        <div class="ourProduct-info">
+          <div class="ebs"><span class="circleBlock">
+              <p class="ourProduct-hover">Electronic Billing <br> System (EBS)</p><span class="internal-animation-hide-0">
+                <ul>
+                  <li>Invoicing automatic system</li>
+                  <li>Invoices Simulation System</li>
+                </ul></span></span></div>
+          <div class="ais"><span class="circleBlock">
+              <p class="ourProduct-hover">AIS/AIM <br> System</p><span class="internal-animation-hide-1">
+                <ul>
+                  <li>AIS/AIM Systems compliant AIXM 5.1</li>
+                  <li>NOTAM Management</li>
+                </ul></span></span></div>
+          <div class="outsourcing"><span class="circleBlock">
+              <p class="ourProduct-hover">Outsourcing</p><span class="internal-animation-hide-2">
+                <ul>
+                  <li>FPL Briefing</li>
+                  <li>METAR Management</li>
+                </ul></span></span></div>
+          <div class="operational"><span class="circleBlock">
+              <p class="ourProduct-hover">Operational <br> and technical <br> training</p><span class="internal-animation-hide-3">
+                <ul>
+                  <li>eAIP</li>
+                  <li>eTOD</li>
+                </ul></span></span></div>
+        </div>
       </div>
     </section>
     <!-- PRODUCT [products philosophy]-->
-    <!--block product
-    include product
-    
-    -->
+    <section class="product">
+      <div class="product-container">
+        <h1>Products Philosophy</h1>
+        <p>ADMS is a Spanish company that was born with the idea</p>
+        <div class="product-block-0"><img src="./image/product-1.png">
+          <h2>Technologies</h2>
+          <p>Combining different technologies: mobile, web, servers</p>
+        </div>
+        <div class="product-block-1"><img src="./image/product-2.png">
+          <h2>Supply Systems</h2>
+          <p>Supply Systems that are not full covered by the current offer Market</p>
+        </div>
+        <div class="product-block-2"><img src="./image/product-3.png">
+          <h2>Human value</h2>
+          <p>Give a human value to business consulting</p>
+        </div>
+        <div class="product-block-3"><img src="./image/product-4.png">
+          <h2>Training</h2>
+          <p>Operational and technical training environments Air Traffic Control</p>
+        </div>
+      </div>
+    </section>
     <!-- EBS block-->
-    <!--section.ebs-block
-    .ebs-block-container
-        h1= ebsSlogan
-    
-    -->
+    <section class="ebs-block">
+      <div class="ebs-block-container">
+        <h1>EBS -THE KEY TO SAVE YOUR MONEY</h1>
+      </div>
+    </section>
+    <!-- AIM/AIS SYSTEMS-->
+    <section class="system">
+      <div class="internal-container-bg"></div>
+      <div class="system-container">
+        <div class="system-row">
+          <h1>AIM/AIS SYSTEMS</h1><br>
+          <p>ICAO creates a study group (20 March 2008) for the AIS to AIM transition, the Civil Aviation Authorities (CAAs) tries to implement the new AIM concepts.</p><br>
+          <p>The expected outputs of the study group will include a global roadmap for the transition from AIS roadmap for the transition from AIS roadmap for the transition from AIS Charts Annex 15 - Aeronautical Information Services; the Aeronautical Information Services Manual (Doc 8126); and the Aeronautical Chart Manual (Doc 8697), and the development of two new manuals related to the AIM quality system and AIM training.</p><br><a href="http://www.icao.int/safety/ais-aimsg">http://www.icao.int/safety/ais-aimsg</a><br><br>
+          <p>Actually ADMS has experience that almost all CAAs has on planned to do the transition but the actual AIS has on planned to do the transition but the actual doesn&quot;t allow the modular transition.</p><br>
+          <p>The Scope of ADMS is to offer the newest AIS/AIM System with the latest EUROCONTROL and ICAO recommendations and standards.</p>
+        </div>
+      </div>
+    </section>
     <!-- ATM block-->
-    <!--section.atm-block
-    .atm-block-container
-        h1= atmSlogan
-    
-    -->
+    <section class="atm-block">
+      <div class="atm-block-container">
+        <h1>In the global air traffic management (ATM) system environment envisioned by the operational concept, aeronautical information service (AIS) would become one of the most valuable and important enabling services</h1>
+      </div>
+    </section>
     <!-- OUTSOURCING SERVICES-->
-    <!--block outsourcingServices
-    include service
-    
-    -->
+    <section class="out-service">
+      <div class="out-service-container">
+        <h1>Outsourcing services</h1>
+        <div class="out-service-block-0"><img src="./image/services-1.png">
+          <h2>Management proceses</h2>
+          <p>Working to perform Master Plans for Civil aviation's</p>
+        </div>
+        <div class="out-service-block-1"><img src="./image/services-2.png">
+          <h2>Training</h2>
+          <p>Operational and technical trainings</p>
+        </div>
+        <div class="out-service-block-2"><img src="./image/services-3.png">
+          <h2>EBS OFS  (On-Factory System)</h2>
+          <p>EBS_OFS provide directly from ADMS servers. ADMS can provide externalization for the invoice, statistics, reports systems</p>
+        </div>
+      </div>
+    </section>
     <!-- FOOTER-->
-    <!--footer.footer
-    .footer-container
-        h1 Thank God the waiting is over!
-        img(src='./image/footer-logotype.png')
-    -->
+    <footer class="footer">
+      <div class="footer-container">
+        <h1>Thank God the waiting is over!</h1><img src="./image/footer-logotype.png">
+      </div>
+    </footer>
     <!-- FOOTER SECTION [script..]-->
     <script src="script/jquery.min.js"></script>
     <script src="script/script.min.js"></script>

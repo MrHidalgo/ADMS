@@ -15,11 +15,14 @@ $width-point      : return-value(dimension, point);
 $color-white      : return-value(color, white);
 $color-black      : return-value(color, black);
 $color-lightGray1 : return-value(color, lightGray1);
+$color-grayBorder : return-value(color, grayBorder);
 
 $first            : '../image/our-prod-1.png';
 $second           : '../image/our-prod-2.png';
 $third            : '../image/our-prod-3.png';
 $fourth           : '../image/our-prod-4.png';
+
+$fontSansReg      : 'PT Sans';
 
 ///
 /// OUR PRODUCT SECTION
@@ -32,13 +35,15 @@ section.ourProduct{
 
 
   .ourProduct-container{
-    @include  mixinMaxWidthPosition(12, 80, 0);
+    @include  mixinMaxWidthPosition(12.5, 80, 0);
 
 
     h1{
       color: $color-black;
       @extend %paragraphH1;
     }
+
+
     >p{
       text-align: center;
       font-size: render-pixel(20);
@@ -46,19 +51,38 @@ section.ourProduct{
     }
 
 
-    >div{
-      position: relative;
-      display: inline-table;
-      width: render-pixel($width-point + 177);
-      height: render-pixel($width-point + 170);
+    div.ourProduct-info{
+      padding: render-pixel(50) 0;
+      @include mixinCenteredBLockFlex(row, null, center);
 
 
-      span.circleBlock{
-        position: absolute;
-        @include mixinDimensions(render-pixel(240), render-pixel($width-point));
-        background-color: $color-white;
-      }// /-span.circleBlock
-    }// /-div[class^='intenal-animation-']
+      >div{
+        position: relative;
+        display: inline-table;
+        width: $width-all / 4.1;
+        height: render-pixel($width-point + 180);
+        margin: 0 render-pixel(4);
+
+
+          span.circleBlock {
+            position: absolute;
+            width: $width-all;
+
+
+              >p{
+                margin: 0 auto;
+                font-family: $fontSansReg;
+                text-align: center;
+                font-size: render-pixel(24);
+                background-color: rgba($color-white, .85);
+                cursor: pointer;
+                user-select: none;
+                @include mixinDimensions(render-pixel(175), render-pixel($width-point - 15));
+                @include mixinCenteredBLockFlex(row, center, center);
+              }
+          }
+      }
+    }// /-div.ourProduct-info
 
 
     @each $className, $imageName in
@@ -74,14 +98,102 @@ section.ourProduct{
         @if($className == ebs or $className == outsourcing) {
           >span.circleBlock{
             top: 0;
+            display: flex;
+            flex-direction: column-reverse;
+
+            >p{
+              border-bottom-left-radius: render-pixel($width-point);
+              border-bottom-right-radius: render-pixel($width-point);
+            }
           }
         }
         @if($className == ais or $className == operational) {
           >span.circleBlock{
             bottom: 0;
+            display: flex;
+            flex-direction: column;
+
+            >p{
+              border-top-left-radius: render-pixel($width-point);
+              border-top-right-radius: render-pixel($width-point);
+            }
           }
         }
       }
     }// /-@each
+
+
+    [class^='internal-animation-hide-']{
+      background-color: rgba($color-white, .85);
+      opacity: 0;
+      visibility: hidden;
+      height: 0;
+      transition: .45s;
+
+      >ul{
+        padding-left: render-pixel(15);
+
+        >li{
+          list-style: none;
+          font: render-pixel(16) $fontSansReg;
+          line-height: 1.5;
+
+          &:before{
+            content: '';
+            display: inline-block;
+            border-radius: $width-all;
+            background-color: rgba($color-grayBorder, .8);
+            margin-right: render-pixel(10);
+            vertical-align: middle;
+            @include mixinDimensions(render-pixel(15));
+          }
+        }
+      }
+    }// /-[class^='internal-animation-hide-']
   }// /-ourProduct-container
 }// /-section.ourProduct
+
+
+///
+/// OUR PRODUCT ANIMATION SECTION
+///
+span.circleBlock:hover [class^='internal-animation-hide-']{
+  opacity: 1;
+  visibility: visible;
+  height: render-pixel(74);
+  transition: .45s;
+}
+
+
+///
+/// OUR PRODUCT MEDIA QUERIES SECTION
+///
+@media screen and (min-width: 608px) and (max-width: 1191px) {
+  section.ourProduct .ourProduct-container div.ourProduct-info{
+    display: inline-block;
+    width: $width-all;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  section.ourProduct .ourProduct-container div.ourProduct-info>div{
+    width: $width-all / 2.1;
+  }
+}
+@media screen and (max-width: 607px){
+  section.ourProduct .ourProduct-container div.ourProduct-info{
+    display: inline-block;
+    width: $width-all;
+    margin: 0 auto;
+    text-align: center;
+    padding: 15px;
+  }
+
+  section.ourProduct .ourProduct-container div.ourProduct-info>div{
+    width: $width-all;
+  }
+
+  section.ourProduct .ourProduct-container div.ourProduct-info>div{
+    margin: 0;
+  }
+}

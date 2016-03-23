@@ -10,7 +10,7 @@ html
     body
 
         // HEADER [navigation, video]
-        //header.header
+        header.header
             // video section
             section.header-video
                 include video
@@ -20,11 +20,11 @@ html
                 include nav
 
         // ABOUT [why ADMS...]
-        //block about
+        block about
             include about
 
         // PHILOSOPHY [flags, map]
-        //block philosophy
+        block philosophy
             include philosophy
 
         // OUR PRODUCTS
@@ -32,25 +32,29 @@ html
             include ourProduct
 
         // PRODUCT [products philosophy]
-        //block product
+        block product
             include product
 
         // EBS block
-        //section.ebs-block
+        section.ebs-block
             .ebs-block-container
                 h1= ebsSlogan
 
+        // AIM/AIS SYSTEMS
+        block system
+            include system
+
         // ATM block
-        //section.atm-block
+        section.atm-block
             .atm-block-container
                 h1= atmSlogan
 
         // OUTSOURCING SERVICES
-        //block outsourcingServices
+        block outsourcingServices
             include service
 
         // FOOTER
-        //footer.footer
+        footer.footer
             .footer-container
                 h1 Thank God the waiting is over!
                 img(src='./image/footer-logotype.png')

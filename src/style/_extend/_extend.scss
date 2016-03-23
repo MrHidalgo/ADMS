@@ -1,5 +1,6 @@
 @import "../_function/function";
 
+$width-all        : return-value(dimension, all);
 $width-point      : return-value(dimension, point);
 
 $font             : return-value(fontFamily, ptsans);

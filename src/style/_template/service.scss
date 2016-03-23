@@ -27,7 +27,7 @@ section.out-service{
   background-color: $color-gray;
 
   .out-service-container{
-    @include  mixinMaxWidthPosition(12, 80, 0);
+    @include  mixinMaxWidthPosition(12.5, 80, 0);
 
 
     h1{

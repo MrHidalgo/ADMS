@@ -1,0 +1,109 @@
+///
+/// IMPORT BLOCK
+///
+@import "../_mixin/mixin";
+@import "../_function/function";
+@import "../_extend/extend";
+
+
+///
+/// VARIABLE BLOCK
+///
+$width-all          : return-value(dimension, all);
+$width-point        : return-value(dimension, point);
+
+$color-white        : return-value(color, white);
+$color-black        : return-value(color, black);
+$color-systemBorder : return-value(color, systemBorder);
+$color-systemBg     : return-value(color, systemBg);
+
+$imageSystem        : '../image/systems-left-bg.png';
+
+$fontSansReg        : 'PT Sans';
+
+
+///
+/// SYSTEM BLOCK
+///
+section.system{
+  position: relative;
+  width: $width-all;
+  min-height: render-pixel(620);
+  background-color: $color-white;
+  @include mixinBorder(bottom, 5px, $color-systemBorder);
+
+
+  .internal-container-bg{
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      width: $width-all - 70;
+      height: $width-all;
+      background: $color-systemBg url($imageSystem) no-repeat right;
+    }
+    &:after{
+      content: '';
+      position: absolute;
+      right: 0;
+      width: $width-all - 30;
+      height: $width-all;
+    }
+  }// /-.internal-container-bg
+
+
+  .system-container{
+    position: relative;
+    z-index: 100;
+    @include  mixinMaxWidthPosition(12.5, 80, 0);
+
+
+    .system-row{
+      float: right;
+      width: $width-point + 660;
+      padding: 0 render-pixel(15);
+
+      >h1{
+        text-align: left;
+        padding-left: $width-all - 85;
+        padding-bottom: $width-all - 96;
+        @extend %paragraphH1;
+      }
+      >p{
+        font-family: $fontSansReg;
+        font-size: render-pixel(16);
+      }
+
+      >a{
+        text-decoration: none;
+        color: darken($color-systemBg, 5%);
+      }
+    }// /-.system-row
+  }// /-.system-container
+}// /-section.system
+
+
+
+///
+/// SYSTEM MEDIA QUERIES SECTION
+///
+@media screen and (min-width: 768px) and (max-width: 1091px){
+  section.system .system-container .system-row{
+    width: $width-all - 35;
+  }
+}
+@media screen and (max-width: 767px){
+  section.system .system-container .system-row{
+    float: none;
+    width: $width-all;
+  }
+
+  section.system .internal-container-bg:before{
+    background-color: rgba($color-systemBg, .2);
+  }
+
+  section.system .system-container .system-row>a{
+    font-weight: bold;
+    color: $color-black;
+  }
+}

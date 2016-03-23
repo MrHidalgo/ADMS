@@ -28,7 +28,7 @@ section.about{
   @include mixinBorder(bottom, 5px, $color-blueBorder);
 
   .about-container{
-    @include  mixinMaxWidthPosition(12, 80, 0);
+    @include  mixinMaxWidthPosition(12.5, 80, 0);
 
 
     h1{
