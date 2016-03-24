@@ -1,0 +1,21 @@
+- var title     = 'Electronic Billing System';
+- var slogan    = 'Since ADMS have a cutting edge solution that, thanks to new <br/> technologies, allows access ensuring the usability of the systems <br/> to be accessible to users with different roles';
+- var imageRightBlock   = './image/electron-sys.png';
+- var textTitleAcc      = ['Technologies', 'Main Characteristics', 'The main technical advantage"s', 'EBS Modules', 'EBS Integration'];
+
+section#electronicSystem.electronicSystem
+    .electronicSystem-container
+        h1= title
+        p!= slogan
+
+        .electronicSystem-row
+            .accordion
+                - for (var i = 0; i < 5; i++)
+                    .accordion-section
+                        a(class='accordion-section-title', href='#accordion-#{i}')= textTitleAcc[i]
+                        div(id='accordion-#{i}', class='accordion-section-content')
+                            p test
+
+            //
+            //.electronicSystem-row-right
+            //    img(src=imageRightBlock)
