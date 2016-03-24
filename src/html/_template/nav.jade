@@ -1,4 +1,5 @@
-- var menu = ['Why', 'Philosophy', 'Products', 'EBS', 'AIS/AIM', 'Outsourcing', 'Contact', 'Login'];
+- var menu      = ['Why', 'Philosophy', 'Products', 'EBS', 'AIS/AIM', 'Outsourcing', 'Contact', 'Login'];
+- var hashTag   = ['#about', '#philosophy', '#ourProduct', '#ebs-block', '#system', '#atm-block', 'javascript: void(0);', 'javascript: void(0);'];
 
 nav.navbar
     .navbar-logo
@@ -7,9 +8,8 @@ nav.navbar
     // main menu for large resolution > 1200px
     .navbar-menu
         ul.navbar-menu-list
-            each val in menu
-                li
-                    a(href='#')= val
+            - for (var val = 0; val < 8; val++)
+                li: a(href=hashTag[val])= menu[val]
 
     // second menu after show btn menu < 1200px
     .navbar-hidemenu
@@ -20,6 +20,5 @@ nav.navbar
         // content block for item
         .navbar-hidemenu-block
             ul.menu-list
-                each val in menu
-                    li
-                        a(href='#')= val
+                - for (var val = 0; val < 8; val++)
+                    li: a(href=hashTag[val])= menu[val]

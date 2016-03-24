@@ -23,11 +23,13 @@ $media-resolution : return-value(mediaBreackpoints, large);
 /// NAVIGATION BLOCK
 ///
 section.header-navigation{
-  position: absolute;
+  position: fixed;
   top: render-pixel($width-point - 73);
   left: 0;
   background-color: $color-white;
+  z-index: 110;
   @include mixinDimensions($width-all, render-pixel($width-point - 20));
+  @include mixinBoxShadow(none, 0, 0, render-pixel(5), rgba($color-black, .5));
 
 
   nav.navbar{
@@ -155,8 +157,8 @@ section.header-navigation{
 
             >a{
               display: block;
+              color: $color-white !important;
               @extend %btn-link;
-              color: $color-white;
             }
           }
 

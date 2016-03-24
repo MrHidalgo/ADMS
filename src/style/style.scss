@@ -3,6 +3,9 @@
 ///
 @import "_mixin/mixin";
 @import "_function/function";
+@import "_template/import";
+
+
 ///
 /// FONTS
 ///
@@ -33,10 +36,6 @@ $fontAgora          : AgoraSansPro;
 body,
 html{
   @include mixinDimensions($width-all);
-
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
 
 html {
@@ -45,14 +44,20 @@ html {
 }
 
 body{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
   line-height: 1.42857143;
   font-size: 15px;
   font-family: $font;
   font-weight: normal;
-  background-color: $color-white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: $color-white;
 }
+
 
 * {
   box-sizing: border-box;
@@ -122,10 +127,9 @@ footer.footer{
 ///
 /// ANIMATION CLASS
 ///
-.animated {
-  animation-duration: .5s;
-  animation-fill-mode: both;
+.hidden{
+  opacity: 0;
 }
-.animated.infinite {
-  animation-iteration-count: infinite;
+.visibly{
+  opacity: 1;
 }

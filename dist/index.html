@@ -9,16 +9,9 @@
     <!--TITLE-->
     <title>ADSM ver0.1</title>
     <!--LINK CSS-->
-    <link href="style/style.css" rel="stylesheet">
-    <link href="style/video.css" rel="stylesheet">
-    <link href="style/nav.css" rel="stylesheet">
-    <link href="style/about.css" rel="stylesheet">
-    <link href="style/philosophy.css" rel="stylesheet">
-    <link href="style/product.css" rel="stylesheet">
-    <link href="style/service.css" rel="stylesheet">
-    <link href="style/atm-ebs.css" rel="stylesheet">
-    <link href="style/ourproduct.css" rel="stylesheet">
-    <link href="style/system.css" rel="stylesheet">
+    <link href="style/style.min.css" rel="stylesheet">
+    <!-- ANIMATE STYLY [fadeIn, fadeOut...]-->
+    <link href="style/animate.min.css" rel="stylesheet">
     <!-- FONTS-->
     <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
@@ -43,14 +36,14 @@
           <!-- main menu for large resolution > 1200px-->
           <div class="navbar-menu">
             <ul class="navbar-menu-list">
-              <li><a href="#">Why</a></li>
-              <li><a href="#">Philosophy</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="#">EBS</a></li>
-              <li><a href="#">AIS/AIM</a></li>
-              <li><a href="#">Outsourcing</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Login</a></li>
+              <li><a href="#about">Why</a></li>
+              <li><a href="#philosophy">Philosophy</a></li>
+              <li><a href="#ourProduct">Products</a></li>
+              <li><a href="#ebs-block">EBS</a></li>
+              <li><a href="#system">AIS/AIM</a></li>
+              <li><a href="#atm-block">Outsourcing</a></li>
+              <li><a href="javascript: void(0);">Contact</a></li>
+              <li><a href="javascript: void(0);">Login</a></li>
             </ul>
           </div>
           <!-- second menu after show btn menu < 1200px-->
@@ -60,14 +53,14 @@
             <!-- content block for item-->
             <div class="navbar-hidemenu-block">
               <ul class="menu-list">
-                <li><a href="#">Why</a></li>
-                <li><a href="#">Philosophy</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">EBS</a></li>
-                <li><a href="#">AIS/AIM</a></li>
-                <li><a href="#">Outsourcing</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="#about">Why</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#ourProduct">Products</a></li>
+                <li><a href="#ebs-block">EBS</a></li>
+                <li><a href="#system">AIS/AIM</a></li>
+                <li><a href="#atm-block">Outsourcing</a></li>
+                <li><a href="javascript: void(0);">Contact</a></li>
+                <li><a href="javascript: void(0);">Login</a></li>
               </ul>
             </div>
           </div>
@@ -75,7 +68,7 @@
       </section>
     </header>
     <!-- ABOUT [why ADMS...]-->
-    <section class="about">
+    <section id="about" class="about">
       <div class="about-container">
         <h1>why aero data management systems</h1>
         <div class="about-block-0"><img src="./image/about-3.png">
@@ -93,7 +86,7 @@
       </div>
     </section>
     <!-- PHILOSOPHY [flags, map]-->
-    <section class="philosophy">
+    <section id="philosophy" class="philosophy">
       <div class="philosophy-container">
         <div class="philosophy-counrty-tunisia">
           <p>tunisia</p><span data-tooltip="Management and control of Tunisia´s airspace: 2 Control Centers, 5 APP Centers, 5 Control Towers. 3 PSR+MSSR Radars" class="tunisia"></span>
@@ -119,7 +112,7 @@
       </div>
     </section>
     <!-- OUR PRODUCTS-->
-    <section class="ourProduct">
+    <section id="ourProduct" class="ourProduct">
       <div class="ourProduct-container">
         <h1>Our Products</h1>
         <p>Some words about the products</p>
@@ -152,7 +145,7 @@
       </div>
     </section>
     <!-- PRODUCT [products philosophy]-->
-    <section class="product">
+    <section id="product" class="product">
       <div class="product-container">
         <h1>Products Philosophy</h1>
         <p>ADMS is a Spanish company that was born with the idea</p>
@@ -175,13 +168,13 @@
       </div>
     </section>
     <!-- EBS block-->
-    <section class="ebs-block">
+    <section id="ebs-block" class="ebs-block">
       <div class="ebs-block-container">
         <h1>EBS -THE KEY TO SAVE YOUR MONEY</h1>
       </div>
     </section>
     <!-- AIM/AIS SYSTEMS-->
-    <section class="system">
+    <section id="system" class="system">
       <div class="internal-container-bg"></div>
       <div class="system-container">
         <div class="system-row">
@@ -194,13 +187,13 @@
       </div>
     </section>
     <!-- ATM block-->
-    <section class="atm-block">
+    <section id="atm-block" class="atm-block">
       <div class="atm-block-container">
         <h1>In the global air traffic management (ATM) system environment envisioned by the operational concept, aeronautical information service (AIS) would become one of the most valuable and important enabling services</h1>
       </div>
     </section>
     <!-- OUTSOURCING SERVICES-->
-    <section class="out-service">
+    <section id="out-service" class="out-service">
       <div class="out-service-container">
         <h1>Outsourcing services</h1>
         <div class="out-service-block-0"><img src="./image/services-1.png">
@@ -226,5 +219,6 @@
     <!-- FOOTER SECTION [script..]-->
     <script src="script/jquery.min.js"></script>
     <script src="script/script.min.js"></script>
+    <script src="script/jquery.viewportchecker.min.js"></script>
   </body>
 </html>

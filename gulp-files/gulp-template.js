@@ -92,11 +92,11 @@ var gulp            =   require('gulp'),
                 configuration.mainConfig.scss.stylize.minify
             )
         })
-        //.pipe( function() {
-        //    return rename(
-        //        commands.renameStyle
-        //    )
-        //})
+        .pipe( function() {
+            return rename(
+                commands.renameStyle
+            )
+        })
         .pipe(reloadTemplate)
         .pipe(
             gulp.dest, path.dist.style

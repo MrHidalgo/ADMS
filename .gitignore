@@ -2,6 +2,7 @@
 .git/
 .idea/
 node_modules/
+vendor/
 
 # FILES
 ADMSLanding.iml
