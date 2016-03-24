@@ -42,7 +42,7 @@ section.electronicSystem{
       @extend %paragraphH1;
     }// /-h1
 
-    p{
+    >p{
       text-align: center;
       font-size: render-pixel(20);
       margin: render-pixel(20) 0 render-pixel(20) 0;
@@ -103,10 +103,94 @@ section.electronicSystem{
         }// /-accordion-section-title
 
         .accordion-section-content {
-          padding: render-pixel(15);
-          display:none;
+          padding: render-pixel(15) render-pixel(15) render-pixel(15) render-pixel(5);
+          //display:none;
         }
       }// /-accordion
     }// /-.electronicSystem-row
   }// /-electronicSystem-container
 }// /-electronicSystem
+
+
+$imageChecked : '../image/iconcheck.png';
+
+///
+/// technologies
+///
+.technologies{
+  .technologies-list{
+    padding-left: 0;
+    margin: 0;
+
+    >li{
+      @include mixinCenteredBLockFlex(row, center, flex-start);
+      list-style: none;
+      font-size: render-pixel(16);
+      padding: render-pixel(10) render-pixel(5);
+
+      i{
+        width: 34px;
+        height: 34px;
+        display: inline-block;
+        background: url($imageChecked) no-repeat center;
+        background-size: contain;
+        margin-right: render-pixel(15);
+        vertical-align: middle;
+        //@include mixinDimensions(render-pixel($width-point - 66));
+      }
+    }
+  }// /-technologies-list
+}// /-technologies
+
+$iconCharacter1 : '../image/main-1.png';
+$iconCharacter2 : '../image/main-2.png';
+$iconCharacter3 : '../image/main-3.png';
+$iconCharacter4 : '../image/main-4.png';
+$iconCharacter5 : '../image/main-5.png';
+$iconCharacter6 : '../image/main-6.png';
+$iconCharacter7 : '../image/main-7.png';
+
+///
+/// character
+///
+.character{
+  >p{
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  ul.character-list{
+    padding-left: 0;
+
+
+    li{
+      list-style: none;
+      padding: render-pixel(10) render-pixel(5);
+      float: left;
+      width: $width-all - 50;
+      @include mixinCenteredBLockFlex(row, flex-start, center);
+
+      @each $className, $imageName in (main-0, $iconCharacter1),
+              (main-1, $iconCharacter2),
+              (main-2, $iconCharacter3),
+              (main-3, $iconCharacter4),
+              (main-4, $iconCharacter5),
+              (main-5, $iconCharacter6),
+              (main-6, $iconCharacter7),
+      {
+        >i.#{$className}{
+          display: inline-block;
+          @include mixinDimensions(render-pixel(70));
+          background: url($imageName) no-repeat center;
+          background-size: contain;
+          vertical-align: middle;
+          margin-right: render-pixel(10);
+        }
+      }
+
+      >span{
+        width: render-pixel(210);
+      }
+    }
+  }
+}
