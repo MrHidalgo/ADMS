@@ -16,7 +16,6 @@ $color-black   : return-value(color, black);
 $color-darkblue   : return-value(color, darkblue);
 $color-grayBorder : return-value(color, grayBorder);
 
-$philosophy : '../image/philosophy-bg.png';
 $tunisia    : '../image/tunisia.png';
 $morocco    : '../image/morocco.png';
 $poland     : '../image/poland.png';
@@ -29,24 +28,16 @@ $oman       : '../image/oman.png';
 ///
 /// PHILOSOPHY SECTION
 ///
+section#philosophy{
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
 section.philosophy{
   position: relative;
   width: $width-all;
   min-height: render-pixel(600);
-  //background-color: $color-darkblue;
-  background: url("#{$philosophy}") no-repeat center;
-  background-size: cover;
-  //background-attachment: fixed;
   @include mixinBorder(bottom, 5px, $color-grayBorder);
-
-
-  &:before{
-    //content: '';
-    //position: absolute;
-    //width: $width-all;
-    //min-height: render-pixel(600);
-
-  }
 
 
   .philosophy-container{
@@ -173,8 +164,8 @@ section.philosophy{
     padding: render-pixel(25) 0;
   }
 
-  section.philosophy{
-    background-attachment: scroll;
+  section#philosophy.philosophy{
+    background-attachment: scroll !important;
   }
 
   section.philosophy .philosophy-container div[class^="philosophy-counrty-"] > p{

@@ -15,9 +15,6 @@ $color-white      : return-value(color, white);
 $color-lgrayBorder: return-value(color, lgrayBorder);
 $color-ebsBorder  : return-value(color, ebsBorder);
 
-$atmBg            : '../image/atm-image-bg.png';
-$etsBg            : '../image/ebs-image-bg.png';
-
 
 ///
 /// ATB/EBS SOLO BLOCK
@@ -30,10 +27,6 @@ section.atm-block{
       font-size: render-pixel(35);
     }
   }
-
-  &:before{
-    background: url($atmBg) no-repeat center;
-  }
 }
 section.ebs-block{
   @include mixinBorder(bottom, 5px, $color-ebsBorder);
@@ -43,29 +36,23 @@ section.ebs-block{
       font-size: render-pixel(57);
     }
   }
-
-  &:before{
-    background: url($etsBg) no-repeat center;
-  }
 }
 
 ///
 /// ATB/EBS MAIN BLOCK
 ///
+section#atm-block.atm-block,
+section#ebs-block.ebs-block{
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
 section.atm-block,
 section.ebs-block{
   position: relative;
   width: $width-all;
   min-height: render-pixel(500);
-  background-color: $color-white;
-
-  &:before{
-    content: '';
-    position: absolute;
-    @include mixinDimensions($width-all);
-
-    background-size: cover;
-  }
+  background-color: $color-lgrayBorder;
 
 
   .atm-block-container,
@@ -113,6 +100,11 @@ section.ebs-block{
 /// ATM/EBS MEDIA QUERIES BLOCK
 ///
 @media screen and (max-width: 767px){
+  section#atm-block.atm-block,
+  section#ebs-block.ebs-block{
+    background-attachment: scroll !important;
+  }
+
   section.ebs-block .ebs-block-container h1{
     font-size: render-pixel(35);
   }

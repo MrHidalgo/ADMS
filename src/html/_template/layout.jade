@@ -41,7 +41,7 @@ html
 
 
         // EBS block
-        section#ebs-block.ebs-block
+        section(id='ebs-block', class='ebs-block', style='background: url("./image/ebs-image-bg.png") no-repeat center;')
             .ebs-block-container
                 h1= ebsSlogan
 
@@ -50,7 +50,7 @@ html
             include system
 
         // ATM block
-        section#atm-block.atm-block
+        section(id='atm-block', class='atm-block', style='background: url("./image/atm-image-bg.png") no-repeat center;')
             .atm-block-container
                 h1= atmSlogan
 
@@ -63,5 +63,6 @@ html
             .footer-container
                 h1 Thank God the waiting is over!
                 img(src='./image/footer-logotype.png')
+
         // FOOTER SECTION [script..]
         include foot

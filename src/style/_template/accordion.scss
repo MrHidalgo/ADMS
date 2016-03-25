@@ -290,7 +290,7 @@ $imageIntegration8 : '../image/ebs-8.png';
             @include mixinDimensions($width-all, render-pixel($width-point - 50));
             top: 0;
             left: 0;
-            background: rgba($color-white, .8);
+            background: rgba($color-white, .75);
             border-bottom-left-radius: $width-all;
             border-bottom-right-radius: $width-all;
           }
@@ -299,7 +299,7 @@ $imageIntegration8 : '../image/ebs-8.png';
         @if($className == integration-2 or $className == integration-4 or $className == integration-6){
           >p {
             position: absolute;
-            @include mixinDimensions($width-all, $width-point - 55);
+            @include mixinDimensions($width-all, $width-point - 50);
             bottom: 0;
             left: 0;
             background: rgba($color-white, .8);
@@ -324,6 +324,9 @@ $imageIntegration8 : '../image/ebs-8.png';
 /// ACCORDION MEDIA QUERIES SECTION
 ///
 @media screen and (min-width: 0px) and (max-width: 720px){
+  .accordion .integration ul.integration-list>li{
+    @include mixinDimensions(render-pixel(130));
+  }
   section.electronicSystem .electronicSystem-container:after {
     display: none;
   }
