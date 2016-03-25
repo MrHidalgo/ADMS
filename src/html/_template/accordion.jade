@@ -1,19 +1,23 @@
 //
 // VARIABLE
 //
-- var title     = 'Electronic Billing System';
-- var slogan    = 'Since ADMS have a cutting edge solution that, thanks to new <br/> technologies, allows access ensuring the usability of the systems <br/> to be accessible to users with different roles';
+- var title             = 'Electronic Billing System';
+- var slogan            = 'Since ADMS have a cutting edge solution that, thanks to new <br/> technologies, allows access ensuring the usability of the systems <br/> to be accessible to users with different roles';
 - var imageRightBlock   = './image/electron-sys.png';
 - var textTitleAcc      = ['Technologies', 'Main Characteristics', 'The main technical advantage"s', 'EBS Modules', 'EBS Integration'];
 - var mixinBlock1Text   = ['Invoice <strong>Simulation</strong>', '<strong>Automatic</strong> billing and invoices generation <br/>Dynamic invoicing Taking into account the different Customer parameters', '<strong>Dynamic Graphics</strong> presentation', '<strong>Analysis</strong> system for decisions support', '<strong>Web access</strong> form the company"s intranet', '<strong>Mobile access</strong> to check and explore all statistics information', '<strong>Corporative Home page Updating</strong> with the latest information', 'Aeronautical Support <strong>Document Management</strong>> (ICAO, Eurocontrol, AIP, ...)', '<strong>Repository Databases</strong> with airports, airlines, aircraft, ...'];
 - var mixinBlock2Text   = ['<strong>Modular system</strong> <br/> customizable onDemand', '<strong>Scalable</strong> for using the <br/>system in any environment (several centres and <br/>aerodromes of different complexity).', '<strong>Automatic</strong> data collection from different systems (ATM, Airports, AFTN, ...).', '<strong>Customizable</strong> to produce the proper charges and billing according to ad-hoc rules and formulas.', '<strong>Accurate</strong> removing errors from manual processing.', '<strong>Speeds up</strong> billing process.', '<strong>Flexible</strong> to cover the current and future needs.'];
-- var mixinBlock3Text   = ['<strong>Redundant</strong> Server based on Red Hat Linux Operating System', '<strong>Firewall</strong> access control to ensure maximum security', 'Server based on <strong>Red Hat Linux</strong> Operating System', 'Support access database <strong>MySQL</strong>', '<strong>Integrated</strong> with external systems (ATM, Airport Data Systems)', '<strong>Open System.</strong> Customer will allow modification of the structure of the application tables', '<strong>Access to the application code</strong> so that the client is capable of adapting'];
+- var mixinBlock3Text   = ['<strong>Redundant</strong> Server based on Red Hat Linux Operating System', '<strong>Firewall</strong> access control to ensure maximum security', 'Server based on <strong>Red Hat Linux</strong> Operating System', 'Support access database <strong>MySQL</strong>', '<strong>Integrated</strong> with external systems (ATM, Airport Data Systems)', '<strong>Open System.</strong> Customer will allow modification of the <br/> structure of the application tables', '<strong>Access to the application code</strong> so that the client <br/> is capable of adapting'];
+- var mixinBlock4Text   = ['Documents', 'Simulated Invoices', 'Invoices', 'Reports&Analysis', 'Statistics', 'Repository Databases'];
+- var mixinBlock4Img    = ['./image/module-1.png', './image/module-2.png', './image/module-3.png', './image/module-4.png', './image/module-5.png', './image/module-6.png'];
+- var mixinBlock5Text   = ['', 'Accounting Systems', 'AFTN/AMHS Systems', 'Airport Facilities', 'ATM Systems', 'Intranet', 'WWW', 'Mobile Users'];
+
 
 //
 // MIXIN
 //
 mixin firstBlock
-    div.technologies
+    .technologies
         ul.technologies-list
             - for (var val = 0; val < 9; val++)
                 li
@@ -21,7 +25,7 @@ mixin firstBlock
                     span!= mixinBlock1Text[val]
 
 mixin secondBlock
-    div.character
+    .character
         p The main characteristics of the Billing System:
         ul.character-list
             -for (var val = 0; val < 7; val++)
@@ -30,7 +34,7 @@ mixin secondBlock
                     span!= mixinBlock2Text[val]
 
 mixin thirdBlock
-    div.technical
+    .technical
         ul.technical-list
             - for (var val = 0; val < 7; val++)
                 li
@@ -39,6 +43,21 @@ mixin thirdBlock
 
         img(src='./image/stamp.png', style='text-align: center')
 
+mixin fourthBlock
+    .module
+        ul.module-list
+            - for (var val = 0; val < 6; val++)
+                li
+                    p= mixinBlock4Text[val]
+                    img(src=mixinBlock4Img[val])
+
+
+mixin fifthBlock
+    .integration
+        ul.integration-list
+            - for (var val = 0; val < 8; val++)
+                li(class='integration-#{val}')
+                    p= mixinBlock5Text[val]
 
 
 section#electronicSystem.electronicSystem
@@ -59,5 +78,9 @@ section#electronicSystem.electronicSystem
                                     +secondBlock
                                 when 2
                                     +thirdBlock
+                                when 3
+                                    +fourthBlock
+                                when 4
+                                    +fifthBlock
                                 default
                                     p error

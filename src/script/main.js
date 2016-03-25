@@ -195,5 +195,11 @@ $(document).ready( function() {
         }
     );
 
-
+    $('.electronicSystem-container').addClass('hidden').viewportChecker(
+        {
+            classToAdd: 'visible animated slideInRight',
+            classToRemove : 'hidden',
+            offset: 350
+        }
+    );
 });

@@ -104,7 +104,7 @@ section.electronicSystem{
 
         .accordion-section-content {
           padding: render-pixel(15) render-pixel(15) render-pixel(15) render-pixel(5);
-          //display:none;
+          display:none;
         }
       }// /-accordion
     }// /-.electronicSystem-row
@@ -136,11 +136,15 @@ $imageChecked : '../image/iconcheck.png';
         background-size: contain;
         margin-right: render-pixel(15);
         vertical-align: middle;
-        //@include mixinDimensions(render-pixel($width-point - 66));
       }
     }
   }// /-technologies-list
 }// /-technologies
+
+
+///
+/// character
+///
 
 $iconCharacter1 : '../image/main-1.png';
 $iconCharacter2 : '../image/main-2.png';
@@ -150,9 +154,6 @@ $iconCharacter5 : '../image/main-5.png';
 $iconCharacter6 : '../image/main-6.png';
 $iconCharacter7 : '../image/main-7.png';
 
-///
-/// character
-///
 .character{
   >p{
     margin-top: 0;
@@ -192,5 +193,163 @@ $iconCharacter7 : '../image/main-7.png';
         width: render-pixel(210);
       }
     }
+  }
+}
+
+///
+/// technical
+///
+.technical{
+  text-align: center;
+
+  .technical-list{
+    padding-left: 0;
+    margin: 0;
+    text-align: left;
+
+    >li{
+      @include mixinCenteredBLockFlex(row, center, flex-start);
+      list-style: none;
+      font-size: render-pixel(16);
+      padding: render-pixel(10) render-pixel(5);
+
+      i{
+        width: 34px;
+        height: 34px;
+        display: inline-block;
+        background: url($imageChecked) no-repeat center;
+        background-size: contain;
+        margin-right: render-pixel(15);
+        vertical-align: middle;
+      }
+    }
+  }// /-technical-list
+}// /-technical
+
+///
+/// MODULE
+///
+.module{
+  text-align: center;
+
+  ul.module-list{
+    padding-left: 0;
+
+    >li{
+      list-style: none;
+      float: left;
+      width: $width-all/3;
+
+      >p{
+        margin: render-pixel(15) 0;
+      }
+    }
+  }// /- ul.module-list
+}// /-module
+
+///
+/// INTEGRATION
+///
+
+$imageIntegration1 : '../image/ebs-1.png';
+$imageIntegration2 : '../image/ebs-2.png';
+$imageIntegration3 : '../image/ebs-3.png';
+$imageIntegration4 : '../image/ebs-4.png';
+$imageIntegration5 : '../image/ebs-5.png';
+$imageIntegration6 : '../image/ebs-6.png';
+$imageIntegration7 : '../image/ebs-7.png';
+$imageIntegration8 : '../image/ebs-8.png';
+
+.integration{
+  ul.integration-list{
+    padding-left: 0;
+
+    @each $className, $imageName in (integration-0, $imageIntegration1),
+            (integration-1, $imageIntegration2),
+            (integration-2, $imageIntegration3),
+            (integration-3, $imageIntegration4),
+            (integration-4, $imageIntegration5),
+            (integration-5, $imageIntegration6),
+            (integration-6, $imageIntegration7),
+            (integration-7, $imageIntegration8)
+    {
+      >li.#{$className}{
+        position: relative;
+        @include mixinDimensions(render-pixel(145));
+        list-style: none;
+        float: left;
+        background: url($imageName) no-repeat center;
+        background-size: contain;
+        margin: render-pixel(2);
+        text-align: center;
+
+
+        @if($className == integration-1 or $className == integration-3 or $className == integration-5 or $className == integration-7){
+          >p {
+            position: absolute;
+            @include mixinDimensions($width-all, render-pixel($width-point - 50));
+            top: 0;
+            left: 0;
+            background: rgba($color-white, .8);
+            border-bottom-left-radius: $width-all;
+            border-bottom-right-radius: $width-all;
+          }
+        }
+
+        @if($className == integration-2 or $className == integration-4 or $className == integration-6){
+          >p {
+            position: absolute;
+            @include mixinDimensions($width-all, $width-point - 55);
+            bottom: 0;
+            left: 0;
+            background: rgba($color-white, .8);
+            border-top-left-radius: $width-all;
+            border-top-right-radius: $width-all;
+          }
+        }
+
+        >p{
+          @include mixinCenteredBLockFlex(row, center, center);
+          font: render-pixel(18) $fontSansReg;
+        }
+      }
+
+    }
+  }
+}// /-integration
+
+
+
+///
+/// ACCORDION MEDIA QUERIES SECTION
+///
+@media screen and (min-width: 0px) and (max-width: 720px){
+  section.electronicSystem .electronicSystem-container:after {
+    display: none;
+  }
+  section.electronicSystem .electronicSystem-container .electronicSystem-row .accordion .accordion-section-title{
+    font-size: render-pixel(14);
+  }
+}
+
+@media screen and (max-width: 991px){
+  section.electronicSystem .electronicSystem-container .electronicSystem-row{
+    width: $width-all;
+    margin: 0 auto;
+    padding: render-pixel(50) render-pixel(25);
+  }
+
+  section.electronicSystem .electronicSystem-container:after {
+    opacity: .35;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px){
+  section.electronicSystem .electronicSystem-container .electronicSystem-row{
+    width: $width-all - 35;
+    padding: render-pixel(50) render-pixel(25);
+  }
+  section.electronicSystem .electronicSystem-container:after {
+    opacity: .55;
   }
 }
