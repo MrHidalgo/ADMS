@@ -166,6 +166,7 @@ section.header-navigation{
             width: render-pixel($width-point + 10);
 
             a:last-child{
+              color: $color-black !important;
               @extend %last-btn-link;
             }
           }

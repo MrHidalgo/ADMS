@@ -91,11 +91,11 @@ section.philosophy{
               $className == ukraine or
               $className == cape or
               $className == kuwait) {
-            &:after{
+            i.line{
               content: '';
               position: absolute;
               top: $width-all - 53;
-              right: render-pixel(-100);
+              right: render-pixel(-103);
               width: render-pixel(100);
               height: render-pixel(4);
               background-color: $color-white;
@@ -107,21 +107,37 @@ section.philosophy{
             background: rgba($color-white, .8);
             position: absolute;
             z-index: 100;
-            opacity: 0;
-            top: render-pixel(80);
+            top: render-pixel(89);
             left: render-pixel(-90);
             width: render-pixel(255);
             border-radius: 0.4em;
             text-align: center;
             padding: 10px 15px;
             color: black;
-            visibility: hidden;
-            transition: all 0.4s ease-in-out;
 
             @include mixinBoxShadow(none, 1px, 1px, 10px, rgba($color-black, .5));
           }
 
-          &:hover:before{
+          &:after{
+            content: '';
+            position: absolute;
+            z-index: 101;
+            border: solid;
+            border-color: rgba($color-white, .8) transparent;
+            border-width:  0 render-pixel(8) render-pixel(8);
+            bottom: render-pixel(-15);
+            left: $width-all - 59;
+          }
+
+          &:before,
+          &:after{
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease-in-out;
+          }
+
+          &:hover:before,
+          &:hover:after{
             opacity: 1;
             visibility: visible;
           }

@@ -91,7 +91,7 @@ function styleMainTask(opt, taskName) {
             ))
             //.pipe(sourcemaps.init())
             .pipe(template.optionsScssTemplate())
-            //.pipe(sourcemaps.write())
+            //.pipe(sourcemaps.write('./map'))
             .pipe(_if(ifFont, template.styleFontOptions()))
             .pipe(_if(ifStyle, template.styleFileOptions()))
             .on(commands.error, reportError)

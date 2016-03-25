@@ -48,7 +48,7 @@ mixin fourthBlock
         ul.module-list
             - for (var val = 0; val < 6; val++)
                 li
-                    p= mixinBlock4Text[val]
+                    p!= mixinBlock4Text[val]
                     img(src=mixinBlock4Img[val])
 
 
@@ -84,3 +84,6 @@ section#electronicSystem.electronicSystem
                                     +fifthBlock
                                 default
                                     p error
+
+        .electronicSystem-row-image
+            img(src='./image/electron-sys.png')

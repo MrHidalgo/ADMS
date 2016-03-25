@@ -6,7 +6,6 @@ function closeRemoveRightMenu() {
     $('.navbar-hidemenu-btn').removeClass('btn-animation');
 }
 
-
 /*
 *   BTN MENU CLICK [ < 1200px ]
 */
@@ -110,6 +109,27 @@ $(document).ready(function() {
 });
 
 
+/*
+*   VIDEO CLICK PLAY/PAUSE
+*/
+$('video').click( function() {
+    var self = this,
+        bool = self.paused;
+
+    /* function play video */
+    function playVideo(opt){
+        opt.play();
+    }
+
+    /* function pause video */
+    function pauseVideo(opt){
+        opt.pause();
+    }
+
+    bool === false ? pauseVideo(self) : playVideo(self);
+});
+
+
 
 /*
 *   AFTER SCROLL & VISIBLE BLOCK ADD ANIMATION
@@ -189,7 +209,7 @@ $(document).ready( function() {
 
     $('.out-service-container').addClass('hidden').viewportChecker(
         {
-            classToAdd: 'visible animated slideInUp',
+            classToAdd: 'visible animated slideInRight',
             classToRemove : 'hidden',
             offset: 350
         }
