@@ -1,0 +1,162 @@
+///
+/// IMPORT BLOCK
+///
+@import "_mixin/mixin";
+@import "_function/function";
+
+
+///
+/// VARIABLE BLOCK
+///
+$width-all          : return-value(dimension, all);
+$color-white        : return-value(color, white);
+$color-gray         : return-value(color, gray);
+$color-blueBtn      : return-value(color, blueBtn);
+
+$fontSansReg        : 'PT Sans';
+
+
+///
+/// SIGN IN SECTION
+///
+section.signin{
+  position: relative;
+  @include mixinDimensions($width-all);
+  background: $color-white url('../image/signin.png') no-repeat center;
+  background-size: cover;
+  @include mixinCenteredBLockFlex(row, center, center);
+
+
+  .signin-container{
+    position: relative;
+    @include mixinDimensions(render-pixel(515), render-pixel(415));
+    background-color: rgba($color-white, .7);
+    border-radius: .5em;
+    padding: render-pixel(15);
+    @include mixinBoxShadow(none, 0,0,5px, rgba($color-white, .4));
+
+    .signin-header{
+      position: absolute;
+      top: render-pixel(15);
+      left: render-pixel(-15);
+      @include mixinDimensions(render-pixel(545), render-pixel(115));
+      background: $color-white;
+      text-align: center;
+
+      &:before,
+      &:after{
+        content: '';
+        position: absolute;
+        bottom: render-pixel(-15);
+        border-top: render-pixel(15) solid rgba($color-white, .7);
+      }
+
+      &:before{
+        left: 0;
+        border-left: render-pixel(15) solid transparent;
+      }
+
+      &:after{
+        right: 0;
+        border-right: render-pixel(15) solid transparent;
+      }
+
+      >img{
+        max-width: $width-all;
+      }
+    }// /-.signin-header
+
+
+    .signin-section{
+      position: relative;
+      top: render-pixel(130);
+      width: $width-all;
+      padding: 0 render-pixel(10) render-pixel(10) render-pixel(10);
+      text-align: center;
+      margin: 0 auto;
+
+      p{
+        font: render-pixel(20) $fontSansReg;
+        margin-bottom: render-pixel(10);
+      }
+
+      >input{
+        @include mixinDimensions($width-all, render-pixel(35));
+        border-radius: .5em;
+        border: 1px solid $color-gray;
+        padding: 0 render-pixel(15);
+        margin: render-pixel(10) 0;
+        outline: none;
+        font: render-pixel(18) $fontSansReg;
+      }
+
+      >a{
+        display: inline-block;
+        @include mixinDimensions(render-pixel(115), render-pixel(42));
+        margin-top: render-pixel(10);
+        font: bold render-pixel(18) $fontSansReg;
+        background: $color-blueBtn;
+        border-radius: .5em;
+        color: $color-white;
+        text-decoration: none;
+        line-height: 2.5;
+      }
+
+    }// /-signin-section
+  }// /-.signin-container
+}// /-section.signin
+
+
+///
+/// SIGN IN MEDIA QUERIES SECTION
+///
+@media screen and (min-width: 320px) and (max-width: 568px){
+  section.signin .signin-container{
+    @include mixinDimensions(render-pixel(300));
+  }
+
+  section.signin .signin-container .signin-header{
+    @include mixinDimensions(render-pixel(320), render-pixel(80));
+    left: render-pixel(-10);
+
+    &:before,
+    &:after{
+      border-top: render-pixel(17) solid rgba($color-white, .7);
+    }
+
+    &:before{
+      left: 0;
+      border-left: render-pixel(10) solid transparent;
+    }
+
+    &:after{
+      right: 0;
+      border-right: render-pixel(10) solid transparent;
+    }
+  }
+
+  section.signin .signin-container .signin-header>img{
+    max-width: 70%;
+    margin: render-pixel(5) auto;
+  }
+
+  section.signin .signin-container .signin-section{
+    top: render-pixel(80);
+
+    >p{
+      margin-top: render-pixel(10);
+      font-size: render-pixel(14);
+    }
+
+    >input{
+      margin: render-pixel(5) 0;
+      height: render-pixel(30);
+      font-size: render-pixel(16);
+    }
+
+    >a{
+      font-size: render-pixel(16);
+      height: render-pixel(40);
+    }
+  }
+}

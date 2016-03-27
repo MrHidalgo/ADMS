@@ -4,6 +4,7 @@
 @import "_mixin/mixin";
 @import "_function/function";
 @import "_template/import";
+@import "style-signin";
 
 
 ///
@@ -78,6 +79,11 @@ ul{
   li{
     list-style: none;
   }
+}
+
+
+section#main-content{
+  @include mixinDimensions($width-all)
 }
 
 

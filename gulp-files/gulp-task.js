@@ -83,7 +83,9 @@ function styleMainTask(opt, taskName) {
 
         gulp.src(
                 [
-                    './src/style/**.scss'
+                    './src/style/style.scss',
+                    './src/style/.scss'
+                    
                 ]
             )
             .pipe(plumber(

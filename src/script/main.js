@@ -163,6 +163,38 @@ $('.navbar-menu-list li a').on('click', function () {
 });
 
 
+/*
+*   SIGN IN PAGE 
+*/
+$('.btn-signin').on('click', function() {
+    var loginValue   = $('.signin-login').val(),
+        passValue    = $('.signin-password').val();
+
+    if(loginValue === 'admin' && passValue === 'admin') {
+        $('.signin-login, .signin-password').css(
+            'border' , '1px solid #008fc0'
+        );
+        $.ajax(
+            {
+                url     : 'index-main.html',
+                cache   : false,
+                success : function(html){
+                    setTimeout( function(){
+                            $('section#signin').fadeOut('slow')
+                    }, 500);
+                    setTimeout( function(){
+                            $('body').fadeIn('slow').html(html)
+                    }, 1000);
+                }
+            }
+        );
+    } else{
+        $('.signin-login, .signin-password').css(
+                'border' , '1px solid red'
+        );
+    }
+});
+
 
 /*
 *   AFTER SCROLL & VISIBLE BLOCK ADD ANIMATION
