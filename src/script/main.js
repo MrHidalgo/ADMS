@@ -87,6 +87,7 @@ $(document).ready(function(){
 *   LOGOTYPE CLICK BACK TO TOP
 */
 $('.navbar-logo').click( function () {
+    $('.navbar-menu-list li a').removeClass('active');
     $('body,html').animate(
         {
             scrollTop: 0
@@ -151,6 +152,16 @@ function pauseVideo() {
     if(vid.paused === false)
         vid.pause();
 }
+
+
+/*
+*   ADD ACTIVE CLASS FOR MENU ITEM
+*/
+$('.navbar-menu-list li a').on('click', function () {
+    $('.navbar-menu-list li a').removeClass('active');
+    $(this).addClass('active');
+});
+
 
 
 /*
