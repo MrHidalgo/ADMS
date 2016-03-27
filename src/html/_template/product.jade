@@ -12,6 +12,8 @@ section#product.product
 
         - for (var val = 0; val < 4; val++)
             div(class='product-block-#{val}')
-                img(src='#{imageSrc[val]}')
+                span(class='product-image-circle-#{val}')
+                    img(src='#{imageSrc[val]}')
+
                 h2= imageTitle[val]
                 p= productText[val]

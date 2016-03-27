@@ -50,6 +50,10 @@ section.out-service{
       >p{
         @extend %paragraph;
       }
+
+      span[class^='out-service-image-circle-']{
+        @extend %imageContainer;
+      }
     }// /-div[class^='out-service-block-']
   }// /-out-service-container
 }// /-section.out-service

@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--TITLE-->
     <title>ADSM ver0.1</title>
+    <!-- FAVICON-->
+    <link href="./image/favicon.ico" rel="shortcut icon" type="image/x-ic">
     <!--LINK CSS-->
     <link href="style/style.min.css" rel="stylesheet">
     <!-- ANIMATE STYLY [fadeIn, fadeOut...]-->
@@ -22,10 +24,10 @@
   </head>
   <body>
     <!-- HEADER [navigation, video]-->
-    <header class="header">
+    <header id="header" class="header">
       <!-- video section-->
       <section class="header-video">
-        <video width="100%" height="100%" autoplay loop>
+        <video id="video" width="100%" height="100%" autoplay loop>
           <source src="./video/video.mp4">
         </video>
       </section>
@@ -66,7 +68,7 @@
           </div>
         </nav>
       </section>
-      <section class="header-btn-video"></section>
+      <section class="header-btn-video"><a href="#about" onclick="pauseVideo()" class="header-btn-skip">Skip Video</a></section>
     </header>
     <!-- ABOUT [why ADMS...]-->
     <section id="about" class="about">
@@ -81,7 +83,7 @@
           <p>ADMS is composed of a human staff with 36 years of experience in various companies in the aviation environment.</p>
         </div>
         <div class="about-block-2"><img src="./image/about-100.png">
-          <h2>Сontrol centers and airport systems</h2>
+          <h2>Control centers and airport systems</h2>
           <p>Our staff has created installations and commissioning of over 100 control centers and airport systems worldwide.</p>
         </div>
       </div>
@@ -90,25 +92,25 @@
     <section id="philosophy" style="background: url(&quot;./image/philosophy-bg.png&quot;) no-repeat center;" class="philosophy">
       <div class="philosophy-container">
         <div class="philosophy-counrty-tunisia">
-          <p>tunisia</p><span data-tooltip="Management and control of &lt;strong&gt;Tunisia´s&lt;/strong&gt; airspace: 2 Control Centers, 5 APP Centers, 5 Control Towers. 3 PSR+MSSR Radars" class="tunisia"><i class="line"></i></span>
+          <p>tunisia</p><span class="tunisia"><i class="line"></i><span>Management and control of <strong>Tunisia's</strong> airspace: 2 Control Centers, 5 APP Centers, 5 Control Towers. 3 PSR+MSSR Radars</span></span>
         </div>
         <div class="philosophy-counrty-morocco">
-          <p>morocco</p><span data-tooltip="&lt;strong&gt;Morocco&lt;/strong&gt; Air Space: 2 Control Centers, 5 TMA’s units, 5 Simulators, 6 Radars MSSR and PSR" class="morocco"><i class="line"></i></span>
+          <p>morocco</p><span class="morocco"><i class="line"></i><span><strong>Morocco</strong> Air Space: 2 Control Centers, 5 TMA's units, 5 Simulators, 6 Radars MSSR and PSR</span></span>
         </div>
         <div class="philosophy-counrty-poland">
-          <p>poland</p><span data-tooltip="&lt;strong&gt;Poland´s&lt;/strong&gt; new Unified Air Traffic Management System, called Pegasus 21" class="poland"><i class="line"></i></span>
+          <p>poland</p><span class="poland"><i class="line"></i><span><strong>Poland's</strong> new Unified Air Traffic Management System, called Pegasus 21</span></span>
         </div>
         <div class="philosophy-counrty-ukraine">
-          <p>ukraine</p><span data-tooltip="Modernization of air traffic in the &lt;strong&gt;Ukraine&lt;/strong&gt;" class="ukraine"><i class="line"></i></span>
+          <p>ukraine</p><span class="ukraine"><i class="line"></i><span>Modernization of air traffic in the <strong>Ukraine</strong></span></span>
         </div>
         <div class="philosophy-counrty-cape verde">
-          <p>cape verde</p><span data-tooltip="Air traffic management in &lt;strong&gt;Cape Verde&lt;/strong&gt;" class="cape verde"><i class="line"></i></span>
+          <p>cape verde</p><span class="cape verde"><i class="line"></i><span>Air traffic management in <strong>Cape Verde</strong></span></span>
         </div>
         <div class="philosophy-counrty-kuwait">
-          <p>kuwait</p><span data-tooltip="Implement an innovative traffic monitoring system in &lt;strong&gt;Kuwait&lt;/strong&gt;" class="kuwait"><i class="line"></i></span>
+          <p>kuwait</p><span class="kuwait"><i class="line"></i><span>Implement an innovative traffic monitoring system in <strong>Kuwait</strong></span></span>
         </div>
         <div class="philosophy-counrty-oman">
-          <p>oman</p><span data-tooltip="&lt;strong&gt;Oman&lt;/strong&gt; air traffic project" class="oman"><i class="line"></i></span>
+          <p>oman</p><span class="oman"><i class="line"></i><span><strong>Oman</strong> air traffic project</span></span>
         </div>
       </div>
     </section>
@@ -117,19 +119,19 @@
       <div class="product-container">
         <h1>Products Philosophy</h1>
         <p>ADMS is a Spanish company that was born with the idea</p>
-        <div class="product-block-0"><img src="./image/product-1.png">
+        <div class="product-block-0"><span class="product-image-circle-0"><img src="./image/product-1.png"></span>
           <h2>Technologies</h2>
           <p>Combining different technologies: mobile, web, servers</p>
         </div>
-        <div class="product-block-1"><img src="./image/product-2.png">
+        <div class="product-block-1"><span class="product-image-circle-1"><img src="./image/product-2.png"></span>
           <h2>Supply Systems</h2>
           <p>Supply Systems that are not full covered by the current offer Market</p>
         </div>
-        <div class="product-block-2"><img src="./image/product-3.png">
+        <div class="product-block-2"><span class="product-image-circle-2"><img src="./image/product-3.png"></span>
           <h2>Human value</h2>
           <p>Give a human value to business consulting</p>
         </div>
-        <div class="product-block-3"><img src="./image/product-4.png">
+        <div class="product-block-3"><span class="product-image-circle-3"><img src="./image/product-4.png"></span>
           <h2>Training</h2>
           <p>Operational and technical training environments Air Traffic Control</p>
         </div>
@@ -204,17 +206,17 @@
                       <p>The main characteristics of the Billing System:</p>
                       <ul class="character-list">
                         <li><i class="main-0"></i><span><strong>Modular system</strong> <br/> customizable onDemand</span></li>
-                        <li><i class="main-1"></i><span><strong>Scalable</strong> for using the <br/>system in any environment (several centres and <br/>aerodromes of different complexity).</span></li>
-                        <li><i class="main-2"></i><span><strong>Automatic</strong> data collection from different systems (ATM, Airports, AFTN, ...).</span></li>
-                        <li><i class="main-3"></i><span><strong>Customizable</strong> to produce the proper charges and billing according to ad-hoc rules and formulas.</span></li>
-                        <li><i class="main-4"></i><span><strong>Accurate</strong> removing errors from manual processing.</span></li>
-                        <li><i class="main-5"></i><span><strong>Speeds up</strong> billing process.</span></li>
-                        <li><i class="main-6"></i><span><strong>Flexible</strong> to cover the current and future needs.</span></li>
+                        <li><i class="main-1"></i><span><strong>Speeds up</strong> billing process.</span></li>
+                        <li><i class="main-2"></i><span><strong>Accurate</strong> removing errors from manual processing.</span></li>
+                        <li><i class="main-3"></i><span><strong>Flexible</strong> to cover the current and future needs.</span></li>
+                        <li><i class="main-4"></i><span><strong>Automatic</strong> data collection from different systems (ATM, Airports, AFTN, ...).</span></li>
+                        <li><i class="main-5"></i><span><strong>Customizable</strong> to produce the proper charges and billing according to ad-hoc rules and formulas.</span></li>
+                        <li><i class="main-6"></i><span><strong>Scalable</strong> for using the <br/>system in any environment (several centres and <br/>aerodromes of different complexity).</span></li>
                       </ul>
                     </div>
               </div>
             </div>
-            <div class="accordion-section"><a href="#accordion-2" class="accordion-section-title">The main technical advantage&quot;s</a>
+            <div class="accordion-section"><a href="#accordion-2" class="accordion-section-title">The main technical advantages</a>
               <div id="accordion-2" class="accordion-section-content">
                     <div class="technical">
                       <ul class="technical-list">
@@ -289,7 +291,12 @@
             </div>
           </div>
         </div>
-        <div class="electronicSystem-row-image"><img src="./image/electron-sys.png"></div>
+        <div class="electronicSystem-row-image"><img src="./image/electron-sys.png">
+          <!--ul#parallax-->
+          <!--    li(class='parallax-layer', data-depth='0.00'): img(src='./image/clouds.png')-->
+          <!--    li(class='parallax-layer', data-depth='0.20'): img(src='./image/plane.png')-->
+          <!--    li(class='parallax-layer', data-depth='0.40'): img(src='./image/pc.png')-->
+        </div>
       </div>
     </section>
     <!-- EBS block-->
@@ -321,15 +328,15 @@
     <section id="out-service" class="out-service">
       <div class="out-service-container">
         <h1>Outsourcing services</h1>
-        <div class="out-service-block-0"><img src="./image/services-1.png">
+        <div class="out-service-block-0"><span class="out-service-image-circle-0"><img src="./image/services-1.png"></span>
           <h2>Management proceses</h2>
           <p>Working to perform Master Plans for Civil aviation's</p>
         </div>
-        <div class="out-service-block-1"><img src="./image/services-2.png">
+        <div class="out-service-block-1"><span class="out-service-image-circle-1"><img src="./image/services-2.png"></span>
           <h2>Training</h2>
           <p>Operational and technical trainings</p>
         </div>
-        <div class="out-service-block-2"><img src="./image/services-3.png">
+        <div class="out-service-block-2"><span class="out-service-image-circle-2"><img src="./image/services-3.png"></span>
           <h2>EBS OFS  (On-Factory System)</h2>
           <p>EBS_OFS provide directly from ADMS servers. ADMS can provide externalization for the invoice, statistics, reports systems</p>
         </div>

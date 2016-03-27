@@ -1,5 +1,5 @@
 - var counrtyName = ['tunisia', 'morocco', 'poland', 'ukraine', 'cape verde', 'kuwait', 'oman'];
-- var tooltipText = ['Management and control of <strong>Tunisia´s</strong> airspace: 2 Control Centers, 5 APP Centers, 5 Control Towers. 3 PSR+MSSR Radars', '<strong>Morocco</strong> Air Space: 2 Control Centers, 5 TMA’s units, 5 Simulators, 6 Radars MSSR and PSR', '<strong>Poland´s</strong> new Unified Air Traffic Management System, called Pegasus 21', 'Modernization of air traffic in the <strong>Ukraine</strong>', 'Air traffic management in <strong>Cape Verde</strong>', 'Implement an innovative traffic monitoring system in <strong>Kuwait</strong>', '<strong>Oman</strong> air traffic project'];
+- var tooltipText = ["Management and control of <strong>Tunisia's</strong> airspace: 2 Control Centers, 5 APP Centers, 5 Control Towers. 3 PSR+MSSR Radars", "<strong>Morocco</strong> Air Space: 2 Control Centers, 5 TMA's units, 5 Simulators, 6 Radars MSSR and PSR", "<strong>Poland's</strong> new Unified Air Traffic Management System, called Pegasus 21", "Modernization of air traffic in the <strong>Ukraine</strong>", "Air traffic management in <strong>Cape Verde</strong>", "Implement an innovative traffic monitoring system in <strong>Kuwait</strong>", "<strong>Oman</strong> air traffic project"];
 
 
 section(id='philosophy', class='philosophy', style='background: url("./image/philosophy-bg.png") no-repeat center;')
@@ -7,5 +7,6 @@ section(id='philosophy', class='philosophy', style='background: url("./image/phi
         - for (var val = 0; val < 7; val++)
             div(class='philosophy-counrty-#{counrtyName[val]}')
                 p= counrtyName[val]
-                span(class='#{counrtyName[val]}', data-tooltip=tooltipText[val])
+                span(class='#{counrtyName[val]}')
                     i.line
+                    span!= tooltipText[val]

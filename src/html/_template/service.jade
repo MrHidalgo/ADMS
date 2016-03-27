@@ -9,6 +9,8 @@ section#out-service.out-service
 
         -for (var val = 0; val < 3; val++)
             div(class='out-service-block-#{val}')
-                img(src=imageSrc[val])
+                span(class='out-service-image-circle-#{val}')
+                    img(src=imageSrc[val])
+
                 h2= slogan[val]
                 p= text[val]

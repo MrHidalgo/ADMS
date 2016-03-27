@@ -10,7 +10,7 @@ html
     body
 
         // HEADER [navigation, video]
-        header.header
+        header#header.header
             // video section
             section.header-video
                 include video
@@ -20,6 +20,7 @@ html
                 include nav
 
             section.header-btn-video
+                a(href='#about', class='header-btn-skip', onclick='pauseVideo()') Skip Video
 
         // ABOUT [why ADMS...]
         block about

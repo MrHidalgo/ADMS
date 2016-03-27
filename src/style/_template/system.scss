@@ -64,11 +64,12 @@ section.system{
       padding: 0 render-pixel(15);
 
       >h1{
-        text-align: left;
-        padding-left: $width-all - 85;
+        padding-left: $width-all - 90;
         padding-bottom: $width-all - 96;
         @extend %paragraphH1;
+        text-align: left !important;
       }
+
       >p{
         font-family: $fontSansReg;
         font-size: render-pixel(16);
@@ -90,6 +91,11 @@ section.system{
 @media screen and (min-width: 768px) and (max-width: 1091px){
   section.system .system-container .system-row{
     width: $width-all - 35;
+  }
+
+  section.system .system-container .system-row>h1{
+    padding-left: 0;
+    padding-bottom: 0;
   }
 }
 @media screen and (max-width: 767px){

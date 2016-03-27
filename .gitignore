@@ -1,9 +1,8 @@
 # FOLDER
-.git/
 .idea/
 node_modules/
 vendor/
+config/
 
 # FILES
-ADMSLanding.iml
 ADMS.iml

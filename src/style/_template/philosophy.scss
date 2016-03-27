@@ -84,6 +84,7 @@ section.philosophy{
           position: relative;
           background: url('#{$imageName}') no-repeat center;
           background-size: contain;
+          transition: .7s;
 
           @if($className == tunisia or
               $className == morocco or
@@ -92,7 +93,6 @@ section.philosophy{
               $className == cape or
               $className == kuwait) {
             i.line{
-              content: '';
               position: absolute;
               top: $width-all - 53;
               right: render-pixel(-103);
@@ -102,46 +102,46 @@ section.philosophy{
             }
           }// /-if
 
-          &:before{
-            content: attr(data-tooltip);
-            background: rgba($color-white, .8);
-            position: absolute;
-            z-index: 100;
-            top: render-pixel(89);
-            left: render-pixel(-90);
-            width: render-pixel(255);
-            border-radius: 0.4em;
-            text-align: center;
-            padding: 10px 15px;
-            color: black;
-
-            @include mixinBoxShadow(none, 1px, 1px, 10px, rgba($color-black, .5));
-          }
-
-          &:after{
-            content: '';
-            position: absolute;
-            z-index: 101;
-            border: solid;
-            border-color: rgba($color-white, .8) transparent;
-            border-width:  0 render-pixel(8) render-pixel(8);
-            bottom: render-pixel(-15);
-            left: $width-all - 59;
-          }
-
-          &:before,
-          &:after{
+          >span{
             opacity: 0;
             visibility: hidden;
-            transition: all 0.4s ease-in-out;
+            transition: .7s;
+            position: absolute;
+            z-index: 0;
+            left: render-pixel(-103);
+            margin-top: render-pixel(90);
+            width: render-pixel(260px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 5px rgba(0,0,0, .5);
+            border-radius: 0.4em;
+            padding: render-pixel(10);
+            text-align: center;
+
+            &:before{
+              content: '';
+              position: absolute;
+              top: render-pixel(-8);
+              left: $width-all / 2;
+              border-width: 0 render-pixel(10) render-pixel(10) render-pixel(10);
+              border-style: solid;
+              border-color: rgba(255, 255, 255, 0.9) transparent;
+            }
+          }// /-span
+
+          &:hover{
+            transition: .7s;
+            box-shadow: 0 0 0 12px rgba(255,255,255,0.5);
+
+            >span{
+              opacity: 1;
+              visibility: visible;
+              transition: .7s;
+              z-index: 100;
+            }
           }
 
-          &:hover:before,
-          &:hover:after{
-            opacity: 1;
-            visibility: visible;
-          }
-        }
+
+        }// /-.#{$className}
       }// /-each
 
     }// /-div[class^='philosophy-counrty-']
@@ -153,18 +153,21 @@ section.philosophy{
 ///
 /// ABOUT MEDIA QUERIES SECTION
 ///
-@media screen and (min-width: 768px) and (max-width: 1200px){
-  section.philosophy .philosophy-container div[class^=philosophy-counrty-] .tunisia:before,
-  section.philosophy .philosophy-container div[class^=philosophy-counrty-] .oman:before{
-    content: attr(data-tooltip);
+@media screen and (min-width: 768px) and (max-width: 1290px){
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-] .tunisia>span{
+    left: 0;
+
+    &:before{
+      left: $width-all - 89;
+    }
   }
 
-  section.philosophy .philosophy-container div[class^=philosophy-counrty-] .tunisia:before{
-    left: render-pixel(-10);
-  }
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-] .oman>span{
+    left: -11.5em;
 
-  section.philosophy .philosophy-container div[class^=philosophy-counrty-] .oman:before{
-    left: render-pixel(-170);
+    &:before{
+      left: $width-all - 18;
+    }
   }
 }
 
@@ -200,14 +203,15 @@ section.philosophy{
     width: render-pixel($width-point + 10);
   }
 
-  section.philosophy .philosophy-container div[class^=philosophy-counrty-] span:after{
-    content: '';
-    display: none;
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-] >span >span {
+    left: -10em !important;
+
+    &:before{
+      left: $width-all - 28 !important;
+    }
   }
 
-  section.philosophy .philosophy-container div[class^=philosophy-counrty-] span:before{
-    content: '';
-    background: rgba($color-white, .95);
-    left: render-pixel(-145) !important;
+  section.philosophy .philosophy-container div[class^=philosophy-counrty-] span i.line{
+    display: none;
   }
 }

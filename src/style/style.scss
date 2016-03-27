@@ -24,6 +24,7 @@ $width-point        : return-value(dimension, point);
 $color-black        : return-value(color, black);
 $color-white        : return-value(color, white);
 $color-lightBlue    : return-value(color, lightBlue);
+$color-lightGray    : return-value(color, lightGray);
 $color-grayBorder   : return-value(color, grayBorder);
 
 $font               : return-value(fontFamily, ptsans);
@@ -73,6 +74,12 @@ h1{
   margin: 0;
 }
 
+ul{
+  li{
+    list-style: none;
+  }
+}
+
 
 ///
 /// HEADER BLOCK
@@ -83,7 +90,35 @@ header.header{
 
   @include mixinDimensions($width-all);
   @include mixinBorder(bottom, 5px, $color-grayBorder);
-}
+
+  section.header-btn-video{
+    position: absolute;
+    bottom: render-pixel(60);
+    width: $width-all;
+    text-align: center;
+
+    >a{
+      display: inline-block;
+      @include mixinDimensions(render-pixel(165), render-pixel(45));
+      background-color: $color-lightGray;
+      text-decoration: none;
+      border-radius: .4em;
+      color: $color-lightBlue;
+      font-size: render-pixel(18);
+      font-weight: bold;
+      line-height: 2.7;
+
+      &:after{
+        content: '';
+        display: inline-block;
+        @include mixinDimensions(render-pixel(16), render-pixel(10));
+        background: url("../image/arrow.png") no-repeat center;
+        vertical-align: middle;
+        margin-left: render-pixel(10);
+      }
+    }
+  }// /-section.header-btn-video
+}// /-header.header
 
 
 ///

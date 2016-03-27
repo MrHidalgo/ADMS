@@ -68,7 +68,7 @@ $(window).scroll( function() {
 *   A SMOOTH TRANSITION FOR ANCHORS
 */
 $(document).ready(function(){
-    $(".navbar-menu, .navbar-hidemenu-block").on("click","a", function (event) {
+    $(".navbar-menu, .navbar-hidemenu-block, .header-btn-video").on("click","a", function (event) {
         event.preventDefault();
 
         var id  = $(this).attr('href'),
@@ -80,6 +80,18 @@ $(document).ready(function(){
             }, 1000
         );
     });
+});
+
+
+/*
+*   LOGOTYPE CLICK BACK TO TOP
+*/
+$('.navbar-logo').click( function () {
+    $('body,html').animate(
+        {
+            scrollTop: 0
+        }, 1000
+    );
 });
 
 
@@ -130,6 +142,16 @@ $('video').click( function() {
 });
 
 
+/*
+*   PAUSE VIDEO BTN
+*/
+function pauseVideo() {
+    var vid = document.getElementById('video');
+
+    if(vid.paused === false)
+        vid.pause();
+}
+
 
 /*
 *   AFTER SCROLL & VISIBLE BLOCK ADD ANIMATION
@@ -146,14 +168,6 @@ $(document).ready( function() {
     $('.philosophy-container').addClass('hidden').viewportChecker(
         {
             classToAdd: 'visible animated fadeIn',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
-
-    $('.ourProduct-container > h1, .ourProduct-container > p').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated fadeInDown',
             classToRemove : 'hidden',
             offset: 350
         }

@@ -175,12 +175,12 @@ $iconCharacter7 : '../image/main-7.png';
       @include mixinCenteredBLockFlex(row, flex-start, center);
 
       @each $className, $imageName in (main-0, $iconCharacter1),
-              (main-1, $iconCharacter2),
-              (main-2, $iconCharacter3),
-              (main-3, $iconCharacter4),
-              (main-4, $iconCharacter5),
-              (main-5, $iconCharacter6),
-              (main-6, $iconCharacter7),
+              (main-1, $iconCharacter6),
+              (main-2, $iconCharacter5),
+              (main-3, $iconCharacter7),
+              (main-4, $iconCharacter3),
+              (main-5, $iconCharacter4),
+              (main-6, $iconCharacter2),
       {
         >i.#{$className}{
           display: inline-block;
@@ -285,6 +285,7 @@ $imageIntegration8 : '../image/ebs-8.png';
         background-size: contain;
         margin: render-pixel(2);
         text-align: center;
+        cursor: pointer;
 
 
         @if($className == integration-1 or $className == integration-3 or $className == integration-5 or $className == integration-7){
@@ -305,15 +306,23 @@ $imageIntegration8 : '../image/ebs-8.png';
             @include mixinDimensions($width-all, $width-point - 50);
             bottom: 0;
             left: 0;
-            background: rgba($color-white, .8);
+            background: rgba($color-white, .75);
             border-top-left-radius: $width-all;
             border-top-right-radius: $width-all;
           }
         }
 
         >p{
+          transition: .75s;
           @include mixinCenteredBLockFlex(row, center, center);
           font: render-pixel(18) $fontSansReg;
+        }
+
+        &:hover{
+          p{
+            background: $color-white;
+            transition: .75s;
+          }
         }
       }
 
@@ -348,7 +357,7 @@ $imageIntegration8 : '../image/ebs-8.png';
 
 @media screen and (min-width: 0px) and (max-width: 720px){
   .integration ul.integration-list, .module ul.module-list{
-    padding-left: render-pixel(40);
+    //padding-left: render-pixel(40);
   }
 
   .technical .technical-list>li,

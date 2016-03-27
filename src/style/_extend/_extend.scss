@@ -1,4 +1,5 @@
 @import "../_function/function";
+@import "../_mixin/mixin";
 
 $width-all        : return-value(dimension, all);
 $width-point      : return-value(dimension, point);
@@ -6,6 +7,7 @@ $width-point      : return-value(dimension, point);
 $font             : return-value(fontFamily, ptsans);
 
 $color-black      : return-value(color, black);
+$color-white      : return-value(color, white);
 $color-lightblue  : return-value(color, lightBlue);
 $color-lightgray  : return-value(color, lightGray);
 
@@ -43,7 +45,7 @@ $color-lightgray  : return-value(color, lightGray);
 /// Paragraph h1 [about, product]
 ///
 %paragraphH2{
-  min-height: render-pixel(45);
+  //min-height: render-pixel(45);
   font-size: render-pixel(26);
   font-weight: normal;
 }
@@ -55,4 +57,27 @@ $color-lightgray  : return-value(color, lightGray);
   line-height: 1.5;
   font-size: render-pixel(17);
   min-height: render-pixel(50);
+}
+
+///
+/// CIRCLE ICON [product, out0service...]
+///
+%imageContainer{
+  position: relative;
+  display: inline-block;
+  @include mixinDimensions(render-pixel(190));
+  background-color: transparent;
+  border-radius: $width-all;
+  border: 3px solid $color-lightblue;
+  transition: .75s;
+  cursor: pointer;
+
+  >img{
+    @include mixinCenteredBLockAbsolute(0,0,0,0);
+  }
+
+  &:hover{
+    background-color: $color-white;
+    transition: .75s;
+  }
 }
