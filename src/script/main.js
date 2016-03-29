@@ -65,29 +65,68 @@ $(window).scroll( function() {
 
 
 /*
-*   A SMOOTH TRANSITION FOR ANCHORS
+*   A SMOOTH TRANSITION FOR ANCHORS & SCROLLSPY
 */
-$(document).ready(function(){
-    $(".navbar-menu, .navbar-hidemenu-block, .header-btn-video").on("click","a", function (event) {
-        event.preventDefault();
+(function($) {
+    // Cache selectors
+    var lastId,
+        topMenu         = $(".navbar-menu-list"),
+        topMenuHeight   = topMenu.outerHeight(),
+            // All list items
+        menuItems       = topMenu.find("a"),
+            // Anchors corresponding to menu items
+        scrollItems     = menuItems.map(function(){
+            var item = $($(this).attr("href"));
 
-        var id  = $(this).attr('href'),
-            top = $(id).offset().top;
+            if (item.length) {
+                return item;
+            }
+        });
 
-        $('body,html').animate(
+    // Bind click handler to menu items, so we can get a fancy scroll animation
+    menuItems.click( function(e){
+        e.preventDefault();
+
+        var href = $(this).attr("href"),
+            offsetTop = href === "#" ? 0 : $(href).offset().top - topMenuHeight + 1;
+
+        $('html, body').stop().animate(
             {
-                scrollTop: top - 75
+            scrollTop: offsetTop
             }, 1000
         );
     });
-});
+
+
+    // Bind to scroll
+    $(window).scroll(function(){
+                // Get container scroll position
+        var fromTop = $(this).scrollTop() + topMenuHeight,
+                // Get id of current scroll item
+            cur     = scrollItems.map(function(){
+                if ($(this).offset().top < fromTop){
+                    return this;
+                }
+            });
+
+        // Get the id of the current element
+        cur = cur[cur.length-1];
+
+        var id = cur && cur.length ? cur[0].id : "";
+
+        if (lastId !== id) {
+            lastId = id;
+            // Set/remove active class
+            menuItems.removeClass("active").filter("[href='#" + id + "']").addClass("active");
+        }
+    });
+})(jQuery);
 
 
 /*
 *   LOGOTYPE CLICK BACK TO TOP
 */
 $('.navbar-logo').click( function () {
-    $('.navbar-menu-list li a').removeClass('active');
     $('body,html').animate(
         {
             scrollTop: 0
