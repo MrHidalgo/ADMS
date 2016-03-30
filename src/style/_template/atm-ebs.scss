@@ -78,7 +78,6 @@ section.ebs-block{
         top: $width-all - 60.5;
         width: $width-point - 81;
         height: $width-point - 5;
-        width: $width-all;
       }
       &:before{
         left: render-pixel(15);

@@ -9,7 +9,7 @@ function closeRemoveRightMenu() {
 /*
 *   BTN MENU CLICK [ < 1200px ]
 */
-$('.navbar-hidemenu-btn').on('click', function(e) {
+$('.navbar-hidemenu-btn').on('click', function() {
     $(this).toggleClass('btn-animation');
     $('.navbar-hidemenu-block').toggleClass('block-animation');
 });
@@ -30,6 +30,7 @@ $(document).click( function(e) {
 
     e.stopPropagation();
 });
+
 
 /*
 *   NAVIGATION FIXED IN TOP AFTER SCROLL
@@ -76,27 +77,40 @@ $(window).scroll( function() {
         menuItems       = topMenu.find("a"),
             // Anchors corresponding to menu items
         scrollItems     = menuItems.map(function(){
-            var item = $($(this).attr("href"));
+            var item    = $($(this).attr("href"));
 
             if (item.length) {
                 return item;
             }
         });
 
-    // Bind click handler to menu items, so we can get a fancy scroll animation
-    menuItems.click( function(e){
-        e.preventDefault();
-
-        var href = $(this).attr("href"),
-            offsetTop = href === "#" ? 0 : $(href).offset().top - topMenuHeight + 1;
+    function clickItemMenu(id){
+        var offsetTop = $(id).offset().top - topMenuHeight + 1;
 
         $('html, body').stop().animate(
             {
-            scrollTop: offsetTop
+                scrollTop: offsetTop
             }, 1000
         );
+    }
+
+    // Bind click handler to menu items, so we can get a fancy scroll animation
+    menuItems.click( function(e){
+        var href = $(this).attr("href");
+
+        clickItemMenu(href);
+
+        e.preventDefault();
     });
 
+    /* skip video btn */
+    $(".header-btn-video").on("click","a", function (event) {
+        var href = $(this).attr("href");
+
+        clickItemMenu(href);
+
+        event.preventDefault();
+    });
 
     // Bind to scroll
     $(window).scroll(function(){
@@ -196,10 +210,10 @@ function pauseVideo() {
 /*
 *   ADD ACTIVE CLASS FOR MENU ITEM
 */
-$('.navbar-menu-list li a').on('click', function () {
-    $('.navbar-menu-list li a').removeClass('active');
-    $(this).addClass('active');
-});
+// $('.navbar-menu-list li a').on('click', function () {
+//     $('.navbar-menu-list li a').removeClass('active');
+//     $(this).addClass('active');
+// });
 
 
 /*

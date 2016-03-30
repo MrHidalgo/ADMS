@@ -81,6 +81,13 @@ ul{
   }
 }
 
+a{
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
+
 
 section#main-content{
   @include mixinDimensions($width-all)
