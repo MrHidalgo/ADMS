@@ -1,0 +1,150 @@
+///
+/// IMPORT BLOCK
+///
+@import "../_mixin/mixin";
+@import "../_function/function";
+@import "../_extend/extend";
+
+
+///
+/// VARIABLE BLOCK
+///
+$width-all        : return-value(dimension, all);
+
+$color-white      : return-value(color, white);
+$color-lgrayBorder: return-value(color, lgrayBorder);
+$color-blueBtn    : return-value(color, blueBtn);
+
+$fontSansReg      : 'PT Sans';
+
+$color-textarea   : #004287;
+$color-btnsend    : #24a6d3;
+
+
+///
+/// CONTACTS SECTION
+///
+section#contacts{
+  background-size: cover !important;
+  background-attachment: fixed !important;
+}
+
+
+section.contacts {
+  width: $width-all;
+  min-height: render-pixel(540);
+  @include mixinBorder(top, 5px, $color-lgrayBorder);
+
+  .contacts-container{
+    @include  mixinMaxWidthPosition(12.5, 80, 0);
+
+    h1{
+      color: $color-white;
+      @extend %paragraphH1;
+    }
+
+    .contacts-row{
+      padding-top: render-pixel(70);
+      min-height: render-pixel(300);
+      @include mixinCenteredBLockFlex(row, flex-start, center);
+
+      .contacts-row-left,
+      .contacts-row-right{
+        width: $width-all/2;
+      }
+
+      .contacts-row-left{
+        form{
+          textarea{
+            width: $width-all;
+            height: render-pixel(170);
+            background-color: rgba($color-textarea, .3);
+            @include mixinBorder('all', 1px, $color-lgrayBorder);
+            border-radius: 1em;
+            padding: render-pixel(15);
+            color: $color-white;
+            font-style: italic;
+            outline: none;
+            font-size: render-pixel(16);
+          }
+
+          button{
+            display: inline-block;
+            @include mixinDimensions(render-pixel(115), render-pixel(42));
+            margin-top: render-pixel(10);
+            font: bold render-pixel(18) $fontSansReg;
+            background: $color-blueBtn;
+            border-radius: .5em;
+            color: $color-white;
+            text-decoration: none;
+            line-height: 2.5;
+            border: none;
+            outline: none;
+          }
+        }
+      }
+
+      .contacts-row-right{
+        padding-top: render-pixel(10);
+        text-align: center;
+        color: $color-white;
+        font-size: render-pixel(30);
+      }
+    }
+  }// /-.contacts-container
+}// /-section.contacts
+
+
+
+///
+/// MEDIA QUERIES
+///
+@media screen and (min-width: 320px) and (max-width: 991px) {
+  section#contacts.contacts {
+    .contacts-container{
+      .contacts-row{
+        padding-left: render-pixel(15);
+        padding-right: render-pixel(15);
+
+        .contacts-row-right{
+          font-size: render-pixel(28);
+        }
+      }// /-.contacts-row
+    }// /-.contacts-container
+  }// /-section#contacts.contacts
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  section#contacts.contacts {
+    .contacts-container {
+      .contacts-row {
+        .contacts-row-right{
+          p{
+            font-size: render-pixel(12) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 991px) {
+  section#contacts.contacts {
+    .contacts-container {
+      .contacts-row {
+        flex-direction: column-reverse;
+
+        .contacts-row-left,
+        .contacts-row-right{
+          width: $width-all;
+        }
+
+        .contacts-row-right{
+          p{
+            margin-bottom: render-pixel(20);
+          }
+        }
+      }
+    }
+  }
+}

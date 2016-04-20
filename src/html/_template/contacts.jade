@@ -1,0 +1,14 @@
+
+section(id='contacts', class='contacts', style='background: url("./image/contacts-bg.png") no-repeat center;')
+    .contacts-container
+        h1 Contact Us
+
+        .contacts-row
+            .contacts-row-left
+                form(class='form', name='contactfoem', id='form', method='post', action="mail.php")
+                    textarea(class='txt-field', name='text-email' placeholder='Your message')
+                    br
+                    button(type='submit', name='submit', class='btn-submit-email') Send
+
+            .contacts-row-right
+                p!= 'Do you have some questions? <br/> Live a message here and <br/> we will answer you soon.'

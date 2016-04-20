@@ -65,30 +65,32 @@ section#electronicSystem.electronicSystem
         h1= title
         p!= slogan
 
-        .electronicSystem-row
-            .accordion
-                - for (var i = 0; i < 5; i++)
-                    .accordion-section
-                        a(class='accordion-section-title', href='#accordion-#{i}')= textTitleAcc[i]
-                        div(id='accordion-#{i}', class='accordion-section-content')
-                            case i
-                                when 0
-                                    +firstBlock
-                                when 1
-                                    +secondBlock
-                                when 2
-                                    +thirdBlock
-                                when 3
-                                    +fourthBlock
-                                when 4
-                                    +fifthBlock
-                                default
-                                    p error
+        .internal-block
+            .electronicSystem-row
+                .accordion
+                    - for (var i = 0; i < 5; i++)
+                        .accordion-section
+                            a(class='accordion-section-title', href='#accordion-#{i}')= textTitleAcc[i]
+                            div(id='accordion-#{i}', class='accordion-section-content')
+                                case i
+                                    when 0
+                                        +firstBlock
+                                    when 1
+                                        +secondBlock
+                                    when 2
+                                        +thirdBlock
+                                    when 3
+                                        +fourthBlock
+                                    when 4
+                                        +fifthBlock
+                                    default
+                                        p error
 
-        .electronicSystem-row-image
-            img(src='./image/electron-sys.png')
+            .electronicSystem-row-image
+                img(src='./image/electron-sys.png')
+                p!= slogan
 
-            //ul#parallax
-            //    li(class='parallax-layer', data-depth='0.00'): img(src='./image/clouds.png')
-            //    li(class='parallax-layer', data-depth='0.20'): img(src='./image/plane.png')
-            //    li(class='parallax-layer', data-depth='0.40'): img(src='./image/pc.png')
+                //ul#parallax
+                //    li(class='parallax-layer', data-depth='0.00'): img(src='./image/clouds.png')
+                //    li(class='parallax-layer', data-depth='0.20'): img(src='./image/plane.png')
+                //    li(class='parallax-layer', data-depth='0.40'): img(src='./image/pc.png')

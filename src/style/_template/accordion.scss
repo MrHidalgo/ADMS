@@ -55,10 +55,20 @@ section.electronicSystem{
       display: inline-block;
     }
 
-    .electronicSystem-row-image img {
-      position: absolute;
-      top: render-pixel(280);
-      right: 0;
+    .electronicSystem-row-image {
+      img{
+        position: absolute;
+        top: render-pixel(280);
+        right: 0;
+      }
+
+      p{
+        display: none;
+        text-align: center;
+        font-size: render-pixel(20);
+        margin: render-pixel(20) 0 render-pixel(20) 0;
+        padding: 0 render-pixel(15);
+      }
     }
 
     .electronicSystem-row{
@@ -356,10 +366,6 @@ $imageIntegration8 : '../image/ebs-8.png';
 }
 
 @media screen and (min-width: 0px) and (max-width: 720px){
-  .integration ul.integration-list, .module ul.module-list{
-    //padding-left: render-pixel(40);
-  }
-
   .technical .technical-list>li,
   .technologies .technologies-list>li{
     display: block;
@@ -385,8 +391,34 @@ $imageIntegration8 : '../image/ebs-8.png';
     padding: render-pixel(50) render-pixel(25);
   }
 
-  .electronicSystem-row-image img {
-    opacity: .09;
+  section.electronicSystem{
+    .electronicSystem-container{
+
+      p{
+        display: none;
+      }
+
+      .internal-block{
+        @include mixinCenteredBLockFlex(column-reverse, center, center);
+
+        .electronicSystem-row-image{
+          margin: 0 auto;
+          text-align: center;
+          padding: render-pixel(25) render-pixel(15) 0;
+
+          img {
+            position: relative;
+            top: 0;
+            margin: render-pixel(20) 0;
+            max-width: $width-all;
+          }
+
+          p{
+            display: block;
+          }
+        }
+      }
+    }
   }
 }
 

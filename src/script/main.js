@@ -208,15 +208,6 @@ function pauseVideo() {
 
 
 /*
-*   ADD ACTIVE CLASS FOR MENU ITEM
-*/
-// $('.navbar-menu-list li a').on('click', function () {
-//     $('.navbar-menu-list li a').removeClass('active');
-//     $(this).addClass('active');
-// });
-
-
-/*
 *   SIGN IN PAGE 
 */
 $('.btn-signin').on('click', function() {
@@ -253,83 +244,85 @@ $('.btn-signin').on('click', function() {
 *   AFTER SCROLL & VISIBLE BLOCK ADD ANIMATION
 */
 $(document).ready( function() {
-    $('.about-container').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated fadeInRight',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
+    if($(window).width() > '767') {
+        $('.about-container').addClass('hidden').viewportChecker(
+            {
+                classToAdd: 'visible animated fadeInRight',
+                classToRemove : 'hidden',
+                offset: 350
+            }
+        );
 
-    $('.philosophy-container').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated fadeIn',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
+        $('.philosophy-container').addClass('hidden').viewportChecker(
+            {
+                classToAdd: 'visible animated fadeIn',
+                classToRemove : 'hidden',
+                offset: 350
+            }
+        );
 
-    $('.ourProduct-info .ebs, .ourProduct-info .ais').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated fadeInLeft',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
+        $('.ourProduct-info .ebs, .ourProduct-info .ais').addClass('hidden').viewportChecker(
+            {
+                classToAdd: 'visible animated fadeInLeft',
+                classToRemove : 'hidden',
+                offset: 350
+            }
+        );
 
-    $('.ourProduct-info .outsourcing, .ourProduct-info .operational').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated fadeInRight',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
+        $('.ourProduct-info .outsourcing, .ourProduct-info .operational').addClass('hidden').viewportChecker(
+            {
+                classToAdd: 'visible animated fadeInRight',
+                classToRemove : 'hidden',
+                offset: 350
+            }
+        );
 
-    $('.product-container').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated fadeInLeft',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
+        $('.product-container').addClass('hidden').viewportChecker(
+            {
+                classToAdd: 'visible animated fadeInLeft',
+                classToRemove : 'hidden',
+                offset: 350
+            }
+        );
 
-    $('.ebs-block-container').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated slideInRight',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
+        $('.ebs-block-container').addClass('hidden').viewportChecker(
+            {
+                classToAdd: 'visible animated slideInRight',
+                classToRemove : 'hidden',
+                offset: 350
+            }
+        );
 
-    $('.atm-block-container').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated slideInLeft',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
+        $('.atm-block-container').addClass('hidden').viewportChecker(
+            {
+                classToAdd: 'visible animated slideInLeft',
+                classToRemove : 'hidden',
+                offset: 350
+            }
+        );
 
-    $('.system-row').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated slideInUp',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
+        $('.system-row').addClass('hidden').viewportChecker(
+            {
+                classToAdd: 'visible animated slideInUp',
+                classToRemove : 'hidden',
+                offset: 350
+            }
+        );
 
-    $('.out-service-container').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated slideInRight',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
+        $('.out-service-container').addClass('hidden').viewportChecker(
+            {
+                classToAdd: 'visible animated slideInRight',
+                classToRemove : 'hidden',
+                offset: 350
+            }
+        );
 
-    $('.electronicSystem-container').addClass('hidden').viewportChecker(
-        {
-            classToAdd: 'visible animated slideInRight',
-            classToRemove : 'hidden',
-            offset: 350
-        }
-    );
+        $('.electronicSystem-container').addClass('hidden').viewportChecker(
+            {
+                classToAdd: 'visible animated slideInRight',
+                classToRemove : 'hidden',
+                offset: 350
+            }
+        );
+    }
 });
