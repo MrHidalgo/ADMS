@@ -90,7 +90,7 @@ section.signin{
         font: render-pixel(18) $fontSansReg;
       }
 
-      >a{
+      >button{
         display: inline-block;
         @include mixinDimensions(render-pixel(115), render-pixel(42));
         margin-top: render-pixel(10);
@@ -100,6 +100,9 @@ section.signin{
         color: $color-white;
         text-decoration: none;
         line-height: 2.5;
+        border: none;
+        outline: none;
+        cursor: pointer;
       }
 
     }// /-signin-section
