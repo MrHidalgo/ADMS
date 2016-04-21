@@ -10,10 +10,50 @@
 ///
 $width-all    : return-value(dimension, all);
 
+$imageMobileBg : '../image/mobile-bg.png';
 
 ///
 /// VIDEO BLOCK
 ///
 section.header-video{
   @include mixinDimensions($width-all);
+
+  .mobile-block{
+    display: none;
+    z-index: 100;
+    @include mixinCenteredBLockAbsolute(0,0,0,0);
+
+    .mobile-row{
+      height: 100%;
+      background: #000 url($imageMobileBg) no-repeat center;
+      background-size: cover;
+      @include mixinCenteredBLockAbsolute(0,0,0,0);
+      @include mixinCenteredBLockFlex(column, center, center);
+
+      button{
+        display: inline-block;
+        width: 10.3125em;
+        height: 2.5125em;
+        background-color: #24a6d3;
+        text-decoration: none;
+        border-radius: .4em;
+        color: #f1f1f1;
+        font-size: 1.125em;
+        font-weight: 700;
+        line-height: 2.5;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  section.header-video{
+    .mobile-block{
+      .mobile-row{
+        height: 50%;
+      }
+    }
+  }
 }

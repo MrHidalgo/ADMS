@@ -7,6 +7,11 @@
       <video id="video" width="100%" height="100%" autoplay="autoplay" loop="loop">
         <source src="./video/video.mp4"/>
       </video>
+      <div class="mobile-block">
+        <div class="mobile-row">
+          <button type="button" onclick="playVideo()" class="header-btn-play">Play Video</button>
+        </div>
+      </div>
     </section>
     <!-- navigation section-->
     <section class="header-navigation">
@@ -271,10 +276,7 @@
         </div>
         <div class="electronicSystem-row-image"><img src="./image/electron-sys.png"/>
           <p>Since ADMS have a cutting edge solution that, thanks to new <br/> technologies, allows access ensuring the usability of the systems <br/> to be accessible to users with different roles</p>
-          <!--ul#parallax-->
-          <!--    li(class='parallax-layer', data-depth='0.00'): img(src='./image/clouds.png')-->
-          <!--    li(class='parallax-layer', data-depth='0.20'): img(src='./image/plane.png')-->
-          <!--    li(class='parallax-layer', data-depth='0.40'): img(src='./image/pc.png')-->
+          <div id="parallax"><img data-stellar-ratio="1.2" data-stellar-vertical-offset="0" src="./image/clouds.png"/><img data-stellar-ratio="1.6" data-stellar-vertical-offset="0" src="./image/plane.png"/><img data-stellar-ratio="1.4" data-stellar-vertical-offset="0" src="./image/pc.png"/></div>
         </div>
       </div>
     </div>
@@ -349,12 +351,16 @@
   <script src="script/jquery.min.js"></script>
   <script src="script/script.min.js"></script>
   <script src="script/jquery.viewportchecker.min.js"></script>
+  <script src="script/jquery.stellar.js"></script>
 </section>
 <script type="text/javascript">
   $(document).ready(function () {
       if ($(window).width() < '768') {
-          var vid = document.getElementById('video');
+          var vid = document.getElementById('video'),
+              mobileScreen = $('.mobile-block');
+  
           vid.pause();
+          mobileScreen.show();
       }
   });
 </script>

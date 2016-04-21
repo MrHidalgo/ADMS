@@ -208,6 +208,21 @@ function pauseVideo() {
 
 
 /*
+*   PLAY VIDEO BTN
+*/
+function playVideo() {
+    var vid = document.getElementById('video'),
+        mobileScreen = $('.mobile-block');
+
+    if(vid.paused === true){
+        mobileScreen.fadeOut('500');
+        vid.play();
+    }
+
+}
+
+
+/*
 *   SIGN IN PAGE 
 */
 $('.btn-signin').on('click', function() {
@@ -238,6 +253,21 @@ $('.btn-signin').on('click', function() {
         );
     }
 });
+
+
+/*
+*   STELLER PARALLAX
+*/
+$(document).ready( function () {
+    if($(window).width() > '767') {
+        $(window).stellar();
+    } else {
+        $('.electronicSystem-row-image>img').show();
+        $('.electronicSystem-row-image p').show();
+    }
+});
+
+
 
 
 /*

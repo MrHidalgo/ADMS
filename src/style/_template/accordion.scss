@@ -57,6 +57,7 @@ section.electronicSystem{
 
     .electronicSystem-row-image {
       img{
+        display: none;
         position: absolute;
         top: render-pixel(280);
         right: 0;
@@ -421,6 +422,50 @@ $imageIntegration8 : '../image/ebs-8.png';
     }
   }
 }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  section#electronicSystem.electronicSystem{
+    .electronicSystem-row-image{
+      #parallax{
+        img{
+          opacity: .3;
+        }
+      }
+    }
+  }
+}
+
+/// test parallax
+section#electronicSystem.electronicSystem{
+  position: relative;
+
+  .electronicSystem-row-image{
+    //position: relative;
+
+    #parallax{
+      img{
+        &:first-child{
+          position: absolute;
+          top: 290px;
+          right: 60px;
+        }
+        &:nth-child(2){
+          position: absolute;
+          top: 370px;
+          right: -10px;
+          z-index: 1;
+        }
+        &:last-child{
+          position: absolute;
+          top: 450px;
+          right: 50px;
+        }
+      }
+    }
+  }
+}
+
+
 
 @media screen and (min-width: 992px) and (max-width: 1200px){
   section.electronicSystem .electronicSystem-container .electronicSystem-row{

@@ -118,6 +118,8 @@ section.contacts {
   section#contacts.contacts {
     .contacts-container {
       .contacts-row {
+        padding-top: render-pixel(20);
+
         .contacts-row-right{
           p{
             font-size: render-pixel(12) !important;
