@@ -48,6 +48,8 @@ section.electronicSystem{
       font-size: render-pixel(20);
       margin: render-pixel(20) 0 render-pixel(20) 0;
       padding: 0 render-pixel(15);
+      position: relative;
+      z-index: 10;
     }// /-p
 
 
@@ -56,7 +58,7 @@ section.electronicSystem{
     }
 
     .electronicSystem-row-image {
-      img{
+      >img{
         display: none;
         position: absolute;
         top: render-pixel(280);
@@ -343,6 +345,34 @@ $imageIntegration8 : '../image/ebs-8.png';
 
 
 
+/// test parallax
+section#electronicSystem.electronicSystem{
+  position: relative;
+
+  .electronicSystem-row-image{
+    #parallax{
+      img{
+        &:first-child{
+          position: absolute;
+          top: 310px;
+        }
+        &:nth-child(2){
+          position: absolute;
+          top: 340px;
+          z-index: 1;
+
+        }
+        &:last-child{
+          position: absolute;
+          top: 390px;
+        }
+      }
+    }
+  }
+}
+
+
+
 ///
 /// ACCORDION MEDIA QUERIES SECTION
 ///
@@ -408,14 +438,19 @@ $imageIntegration8 : '../image/ebs-8.png';
           padding: render-pixel(25) render-pixel(15) 0;
 
           img {
+            display: block;
             position: relative;
             top: 0;
-            margin: render-pixel(20) 0;
+            margin: render-pixel(20) auto;
             max-width: $width-all;
           }
 
           p{
             display: block;
+          }
+
+          #parallax{
+            display: none;
           }
         }
       }
@@ -423,7 +458,7 @@ $imageIntegration8 : '../image/ebs-8.png';
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 990px) {
   section#electronicSystem.electronicSystem{
     .electronicSystem-row-image{
       #parallax{
@@ -435,39 +470,8 @@ $imageIntegration8 : '../image/ebs-8.png';
   }
 }
 
-/// test parallax
-section#electronicSystem.electronicSystem{
-  position: relative;
 
-  .electronicSystem-row-image{
-    //position: relative;
-
-    #parallax{
-      img{
-        &:first-child{
-          position: absolute;
-          top: 290px;
-          right: 60px;
-        }
-        &:nth-child(2){
-          position: absolute;
-          top: 370px;
-          right: -10px;
-          z-index: 1;
-        }
-        &:last-child{
-          position: absolute;
-          top: 450px;
-          right: 50px;
-        }
-      }
-    }
-  }
-}
-
-
-
-@media screen and (min-width: 992px) and (max-width: 1200px){
+@media screen and (min-width: 991px) and (max-width: 1200px){
   section.electronicSystem .electronicSystem-container .electronicSystem-row{
     width: $width-all - 35;
     padding: render-pixel(50) render-pixel(25);
