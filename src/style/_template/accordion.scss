@@ -352,16 +352,22 @@ section#electronicSystem.electronicSystem{
   .electronicSystem-row-image{
     #parallax{
       img{
+        display: block !important;
+
+
         &:first-child{
           position: absolute;
           top: 310px;
         }
+
+
         &:nth-child(2){
           position: absolute;
           top: 340px;
           z-index: 1;
-
         }
+
+
         &:last-child{
           position: absolute;
           top: 390px;
@@ -437,7 +443,7 @@ section#electronicSystem.electronicSystem{
           text-align: center;
           padding: render-pixel(25) render-pixel(15) 0;
 
-          img {
+          >img {
             display: block;
             position: relative;
             top: 0;
